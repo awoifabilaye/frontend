@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 import { withTheme } from 'react-native-paper'
+import Config from 'react-native-config' 
 
 import { ThemesContext } from 'navigation/context'
 import * as navigationOptions from 'navigation/options'
@@ -15,6 +16,7 @@ import CameraScreen from 'screens/CameraScreen'
 import ChatScreen from 'screens/ChatScreen'
 import ChatDirectScreen from 'screens/ChatDirectScreen'
 import OnboardingScreen from 'screens/OnboardingScreen'
+import SandboxScreen from 'screens/SandboxScreen'
 
 const ChatNavigator = ({ navigation }) => {
   const { theme, themes } = useContext(ThemesContext)
@@ -88,6 +90,18 @@ const RootNavigator = () => {
   )
 }
 
+const SandboxNavigator = () => {
+  const Stack = createStackNavigator()
+
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={SandboxScreen}
+      />
+    </Stack.Navigator>
+  )
+}
 
 const AppNavigator = withTheme(({ theme }) => {
   const Tab = createMaterialTopTabNavigator()
@@ -110,4 +124,6 @@ const AppNavigator = withTheme(({ theme }) => {
   )
 })
 
-export default AppNavigator
+export default (
+  Config.environment === 'production' ? AppNavigator : SandboxNavigator
+)
