@@ -6,7 +6,7 @@ import FlipIcon from 'assets/svg/camera/Flip'
 import FlashOnIcon from 'assets/svg/camera/FlashOn'
 import FlashOffIcon from 'assets/svg/camera/FlashOff'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -80,8 +80,8 @@ const styles = theme => StyleSheet.create({
     height: 80,
     borderRadius: 40,
     borderWidth: 10,
-    borderColor: theme.colors.border,
-    backgroundColor: theme.colors.input,
+    borderColor: '#95a5a6',
+    backgroundColor: '#95a5a6',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -97,4 +97,4 @@ Shutter.propTypes = {
   handleLibrarySnap: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Shutter))
+export default withTranslation()(withStyles(Shutter))

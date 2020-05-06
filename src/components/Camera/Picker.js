@@ -7,11 +7,11 @@ import {
 } from 'react-native'
 import Carousel from 'react-native-snap-carousel'
 import Layout from 'constants/Layout'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import SquareIcon from 'assets/svg/camera/Square'
 import PortraitIcon from 'assets/svg/camera/Portrait'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { withTranslation } from 'react-i18next'
 
 const PickerItem = (ref, theme) => ({
@@ -138,4 +138,4 @@ const styles = theme => StyleSheet.create({
   },
 })
 
-export default withTranslation()(withTheme(Picker))
+export default withTranslation()(withStyles(Picker))

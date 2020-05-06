@@ -12,8 +12,9 @@ import CloseIcon from 'assets/svg/camera/Close'
 import SwipeIcon from 'assets/svg/camera/Swipe'
 import { ifIphoneX } from 'react-native-iphone-x-helper'
 import * as Animatable from 'react-native-animatable'
+import { withStyles } from '@ui-kitten/components'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme, Caption } from 'react-native-paper'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -53,7 +54,7 @@ const PostsPreview = ({
                 fill="#ffffff"
               />
 
-              <Caption style={styling.helper}>Swipe to close</Caption>
+              <Text style={styling.helper}>Swipe to close</Text>
             </TouchableOpacity>
           </Animatable.View>
         )}
@@ -105,4 +106,4 @@ const styles = theme => StyleSheet.create({
   },
 })
 
-export default withTranslation()(withTheme(PostsPreview))
+export default withTranslation()(withStyles(PostsPreview))

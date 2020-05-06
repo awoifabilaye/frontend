@@ -10,9 +10,9 @@ import ContactsComponent from 'components/Chat/Contacts'
 import UsersComponent from 'components/Chat/Users'
 import HeaderComponent from 'components/Search/Header'
 import FormComponent from 'components/Search/Form'
-import { Subheading } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -51,12 +51,12 @@ const Chat = ({
           style={styling.list}
           refreshControl={
             <RefreshControl
-              tintColor={theme.colors.border}
+              tintColor={'#95a5a6'}
               refreshing={usersSearch.status === 'loading'}
             />
           }
         >
-          <Subheading style={styling.subheading}>{t('Search')}</Subheading>
+          <Text style={styling.subheading}>{t('Search')}</Text>
           <UsersComponent
             usersSearch={usersSearch}
           />
@@ -67,13 +67,13 @@ const Chat = ({
           style={styling.list}
           refreshControl={
             <RefreshControl
-              tintColor={theme.colors.border}
+              tintColor={'#95a5a6'}
               onRefresh={chatGetChatsRequest}
               refreshing={chatGetChats.status === 'loading'}
             />
           }
         >
-          <Subheading style={styling.subheading}>{t('Recent')}</Subheading>
+          <Text style={styling.subheading}>{t('Recent')}</Text>
           <ContactsComponent
             user={user}
             chatGetChats={chatGetChats}
@@ -87,7 +87,7 @@ const Chat = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   list: {
     flex: 1,
@@ -114,4 +114,4 @@ Chat.propTypes = {
   usersGetTrendingUsers: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Chat))
+export default withTranslation()(withStyles(Chat))

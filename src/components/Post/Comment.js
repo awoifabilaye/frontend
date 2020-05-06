@@ -4,13 +4,13 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import * as navigationActions from 'navigation/actions'
 import pathOr from 'ramda/src/pathOr'
 import reactStringReplace from 'react-string-replace'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -61,7 +61,7 @@ const Comment = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
     marginBottom: 6,
   },
   comment: {
@@ -76,10 +76,10 @@ const styles = theme => StyleSheet.create({
     fontWeight: '700',
   },
   textDefault: {
-    color: theme.colors.text,
+    color: '#333333',
   },
   textUsername: {
-    color: theme.colors.primary,
+    color: '#2ecc71',
   },
 })
 
@@ -89,4 +89,4 @@ Comment.propTypes = {
   post: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Comment))
+export default withTranslation()(withStyles(Comment))

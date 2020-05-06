@@ -7,10 +7,10 @@ import {
 } from 'react-native'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 import FeatureComponent from 'templates/Feature'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -60,14 +60,14 @@ const Verification = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   title: {
-    backgroundColor: theme.colors.backgroundSecondary,
-    padding: theme.spacing.base,
+    backgroundColor: '#bdc3c7',
+    padding: 12,
   },
   titlePrimary: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: '#2ecc71',
   },
   disabled: {
     display: 'none',
@@ -76,7 +76,7 @@ const styles = theme => StyleSheet.create({
     marginVertical: 6,
   },
   action: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -88,4 +88,4 @@ Verification.propTypes = {
   postsEditRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Verification))
+export default withTranslation()(withStyles(Verification))

@@ -6,10 +6,10 @@ import {
   ScrollView,
 } from 'react-native'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import FeatureComponent from 'templates/Feature'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -42,21 +42,21 @@ const Permissions = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     justifyContent: 'center',
   },
   title: {
-    backgroundColor: theme.colors.backgroundSecondary,
-    padding: theme.spacing.base,
+    backgroundColor: '#bdc3c7',
+    padding: 12,
   },
   titlePrimary: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: '#2ecc71',
   },
   features: {
     marginVertical: 6,
   },
   action: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -64,4 +64,4 @@ Permissions.propTypes = {
   theme: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Permissions))
+export default withTranslation()(withStyles(Permissions))

@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -58,4 +58,4 @@ UserRowTemplate.propTypes = {
   onPress: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(UserRowTemplate))
+export default withTranslation()(withStyles(UserRowTemplate))

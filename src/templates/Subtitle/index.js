@@ -5,9 +5,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -54,4 +54,4 @@ const styles = theme => StyleSheet.create({
   },
 })
 
-export default withTranslation()(withTheme(Subtitle))
+export default withTranslation()(withStyles(Subtitle))

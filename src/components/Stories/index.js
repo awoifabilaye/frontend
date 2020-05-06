@@ -7,10 +7,10 @@ import {
 } from 'react-native'
 import path from 'ramda/src/path'
 import Avatar from 'templates/Avatar'
-import { Caption } from 'react-native-paper'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -46,7 +46,7 @@ const Stories = ({
           imageSource={{ uri: path(['photo', 'url480p'])(user) }}
           icon={true}
         />
-        <Caption style={styling.username}>{path(['username'])(user)}</Caption>
+        <Text style={styling.username}>{path(['username'])(user)}</Text>
       </TouchableOpacity>
 
       {(usersGetFollowedUsersWithStories.data || []).map((user, key) => (
@@ -62,7 +62,7 @@ const Stories = ({
             imageSource={{ uri: path(['photo', 'url480p'])(user) }}
             themeCode={path(['themeCode'])(user)}
           />
-          <Caption style={styling.username}>{path(['username'])(user)}</Caption>
+          <Text style={styling.username}>{path(['username'])(user)}</Text>
         </TouchableOpacity>
       ))}
     </ScrollView>
@@ -72,8 +72,8 @@ const Stories = ({
 const styles = theme => StyleSheet.create({
   root: {
     height: 115,
-    padding: theme.spacing.base,
-    backgroundColor: theme.colors.backgroundPrimary,
+    padding: 12,
+    backgroundColor: '#ffffff',
   },
   story: {
     alignItems: 'center',
@@ -81,7 +81,7 @@ const styles = theme => StyleSheet.create({
   },
   username: {
     marginTop: 6,
-    color: theme.colors.text,
+    color: '#333333',
   },
 })
 
@@ -92,4 +92,4 @@ Stories.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Stories))
+export default withTranslation()(withStyles(Stories))

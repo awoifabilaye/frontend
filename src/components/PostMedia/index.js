@@ -10,7 +10,7 @@ import PostComponent from 'components/Post'
 import NativeError from 'templates/NativeError'
 import PostsLoadingComponent from 'components/PostsList/PostsLoading'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -131,7 +131,7 @@ const PostMedia = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   uploading: {
     flexWrap: 'wrap',
@@ -173,4 +173,4 @@ PostMedia.propTypes = {
   priorityQueueInstance: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostMedia))
+export default withTranslation()(withStyles(PostMedia))

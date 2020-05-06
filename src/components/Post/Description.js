@@ -6,10 +6,10 @@ import {
 } from 'react-native'
 import path from 'ramda/src/path'
 import reactStringReplace from 'react-string-replace'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -59,13 +59,13 @@ const Description = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
     marginBottom: 6,
   },
   likes: {
   },
   username: {
-    color: theme.colors.text,
+    color: '#333333',
     fontWeight: '700',
   },
   text: {
@@ -73,10 +73,10 @@ const styles = theme => StyleSheet.create({
     flexWrap: 'wrap',
   },
   textDefault: {
-    color: theme.colors.text,
+    color: '#333333',
   },
   textUsername: {
-    color: theme.colors.primary,
+    color: '#2ecc71',
   },
 })
 
@@ -86,4 +86,4 @@ Description.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Description))
+export default withTranslation()(withStyles(Description))

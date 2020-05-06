@@ -5,15 +5,15 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import path from 'ramda/src/path'
 import TickIcon from 'assets/svg/post/Tick'
 import CloseIcon from 'assets/svg/post/Close'
 import VerificationIcon from 'assets/svg/post/Verification'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -56,7 +56,7 @@ const Uploading = ({
           <TouchableOpacity style={styling.content} onPress={navigationActions.navigateVerification(navigation, { post: pseudoPost })}>
             <Text style={styling.title}>Uploading {post.meta.progress || 0}%</Text>
             <View style={styling.caption}>
-              <Caption style={styling.subtitle}>{t('Pending Verification')} - {t('Learn More')}</Caption>
+              <Text style={styling.subtitle}>{t('Pending Verification')} - {t('Learn More')}</Text>
               <VerificationIcon fill="#676767" />
             </View>
           </TouchableOpacity>
@@ -70,7 +70,7 @@ const Uploading = ({
         <View style={styling.status}>
           <TouchableOpacity style={styling.content} onPress={() => postsCreateRequest(post.payload)}>
             <Text style={styling.title}>{t('Failed to create your post')}</Text>
-            <Caption style={styling.subtitle}>{t('Tap here to reupload')}</Caption>
+            <Text style={styling.subtitle}>{t('Tap here to reupload')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styling.icon} onPress={() => postsCreateIdle(post.payload)}>
             <CloseIcon fill="#ffffff" />
@@ -82,7 +82,7 @@ const Uploading = ({
         <View style={styling.status}>
           <TouchableOpacity style={styling.content} onPress={() => postsCreateIdle(post.payload)}>
             <Text style={styling.title}>Done</Text>
-            <Caption style={styling.subtitle}>{t('Successfully created')}</Caption>
+            <Text style={styling.subtitle}>{t('Successfully created')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styling.icon} onPress={() => postsCreateIdle(post.payload)}>
             <TickIcon fill="#ffffff" />
@@ -97,8 +97,8 @@ const styles = theme => StyleSheet.create({
   root: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: theme.spacing.base,
-    backgroundColor: theme.colors.backgroundPrimary,
+    padding: 12,
+    backgroundColor: '#ffffff',
   },
   status: {
     flexDirection: 'row',
@@ -140,4 +140,4 @@ Uploading.propTypes = {
   postsCreateIdle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Uploading))
+export default withTranslation()(withStyles(Uploading))

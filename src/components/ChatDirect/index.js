@@ -9,7 +9,7 @@ import pathOr from 'ramda/src/pathOr'
 import FormComponent from 'components/ChatDirect/Form'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -73,7 +73,7 @@ const ChatDirect = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
 })
 
@@ -89,4 +89,4 @@ ChatDirect.propTypes = {
   chatId: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ChatDirect))
+export default withTranslation()(withStyles(ChatDirect))

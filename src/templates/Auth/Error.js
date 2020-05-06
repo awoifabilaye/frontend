@@ -5,10 +5,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import CloseIcon from 'assets/svg/post/Close'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -37,7 +37,7 @@ const styles = theme => StyleSheet.create({
     position: 'absolute',
     width: '100%',
     backgroundColor: 'red',
-    padding: theme.spacing.base,
+    padding: 12,
     flexDirection: 'row',
     zIndex: 2,
   },
@@ -57,4 +57,4 @@ Error.propTypes = {
   onClose: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Error))
+export default withTranslation()(withStyles(Error))

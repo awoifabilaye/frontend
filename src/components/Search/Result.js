@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import path from 'ramda/src/path'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
@@ -14,7 +14,7 @@ import UserRowActionComponent from 'templates/UserRowAction'
 import Avatar from 'templates/Avatar'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -86,7 +86,7 @@ const Result = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    padding: theme.spacing.base,
+    padding: 12,
   },
   user: {
     paddingHorizontal: 8,
@@ -110,4 +110,4 @@ Result.propTypes = {
   loading: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Result))
+export default withTranslation()(withStyles(Result))

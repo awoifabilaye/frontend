@@ -10,11 +10,11 @@ import DirectIcon from 'assets/svg/action/Direct'
 import LikeIcon from 'assets/svg/action/Like'
 import UnlikeIcon from 'assets/svg/action/Unlike'
 import path from 'ramda/src/path'
-import { Caption } from 'react-native-paper'
 import dayjs from 'dayjs'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -89,25 +89,25 @@ const Action = ({
 
         {likeButtonVisibility && post.likeStatus === 'NOT_LIKED' ?
           <TouchableOpacity style={styling.actionLeftIcon} onPress={() => postsOnymouslyLikeRequest({ postId: path(['postId'])(post), userId: path(['postedBy', 'userId'])(post) })}>
-            <LikeIcon fill={theme.colors.primaryIcon} />
+            <LikeIcon fill={'#333333'} />
           </TouchableOpacity>
         : null}
 
         {likeButtonVisibility && post.likeStatus !== 'NOT_LIKED' ?
           <TouchableOpacity style={styling.actionLeftIcon} onPress={() => postsDislikeRequest({ postId: path(['postId'])(post), userId: path(['postedBy', 'userId'])(post) })}>
-            <UnlikeIcon fill={theme.colors.primary} />
+            <UnlikeIcon fill={'#2ecc71'} />
           </TouchableOpacity>
         : null}
         
         {commentButtonVisibility ?
           <TouchableOpacity style={styling.actionLeftIcon} onPress={navigationActions.navigateComments(navigation, { post })}>
-            <BubbleIcon fill={theme.colors.primaryIcon} />
+            <BubbleIcon fill={'#333333'} />
           </TouchableOpacity>
         : null}
 
         {shareButtonVisibility ?
           <TouchableOpacity style={styling.actionLeftIcon} onPress={handlePostShare}>
-            <DirectIcon fill={theme.colors.primaryIcon} />
+            <DirectIcon fill={'#333333'} />
           </TouchableOpacity>
         : null}
       </View>
@@ -117,11 +117,11 @@ const Action = ({
 
       {seenByVisibility ?
         <TouchableOpacity style={styling.actionRight} onPress={navigationActions.navigatePostViews(navigation, { post })}>
-          <Caption>{t('Seen by {{viewedByCount}} people', { viewedByCount: post.viewedByCount })}</Caption>
+          <Text>{t('Seen by {{viewedByCount}} people', { viewedByCount: post.viewedByCount })}</Text>
         </TouchableOpacity>
       :
         <View style={styling.actionRight}>
-          <Caption>{dayjs(post.postedAt).from(dayjs())}</Caption>
+          <Text>{dayjs(post.postedAt).from(dayjs())}</Text>
         </View>
       }
     </View>
@@ -132,7 +132,7 @@ const styles = theme => StyleSheet.create({
   action: {
     zIndex: 1,
     flexDirection: 'row',
-    padding: theme.spacing.base,
+    padding: 12,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -164,4 +164,4 @@ Action.propTypes = {
   handlePostShare: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Action))
+export default withTranslation()(withStyles(Action))

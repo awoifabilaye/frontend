@@ -10,7 +10,7 @@ import * as navigationActions from 'navigation/actions'
 import path from 'ramda/src/path'
 import HeaderRight from 'navigation/HeaderRight'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -44,7 +44,7 @@ const Albums = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
 })
 
@@ -59,4 +59,4 @@ Albums.propTypes = {
   t:PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Albums))
+export default withTranslation()(withStyles(Albums))

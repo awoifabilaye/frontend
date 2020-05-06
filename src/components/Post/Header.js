@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import ActionSheet from 'react-native-actionsheet'
-import { Text, Caption } from 'react-native-paper'
 import path from 'ramda/src/path'
 import Avatar from 'templates/Avatar'
 import MoreIcon from 'assets/svg/action/More'
@@ -14,8 +13,9 @@ import BellIcon from 'assets/svg/action/Bell'
 import VerificationIcon from 'assets/svg/action/Verification'
 import dayjs from 'dayjs'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -88,19 +88,19 @@ const Header = ({
 
         {repostVisiblity ?
           <TouchableOpacity style={styling.verification} onPress={navigationActions.navigateProfile(navigation, { user: post.originalPost.postedBy })}>
-            <Caption style={styling.headerStatus}>{t('Reposted from {{ username }}', { username: repostedUsername })}</Caption>
+            <Text style={styling.headerStatus}>{t('Reposted from {{ username }}', { username: repostedUsername })}</Text>
           </TouchableOpacity>
         : null}
 
         {expiryVisiblity ?
           <View style={styling.verification}>
-            <Caption style={styling.headerStatus}>{t('Expires {{expiry}}', { expiry: dayjs(post.expiresAt).from(dayjs()) })}</Caption>
+            <Text style={styling.headerStatus}>{t('Expires {{expiry}}', { expiry: dayjs(post.expiresAt).from(dayjs()) })}</Text>
           </View>
         : null}
 
         {failedVerificationVisibility ?
           <TouchableOpacity onPress={navigationActions.navigateVerification(navigation, { post })} style={styling.verification}>
-            <Caption style={styling.verificationStatus}>{t('Failed Verification')} - {t('Learn More')}</Caption>
+            <Text style={styling.verificationStatus}>{t('Failed Verification')} - {t('Learn More')}</Text>
             <VerificationIcon fill="#DC3644" />
           </TouchableOpacity>
         : null}
@@ -115,7 +115,7 @@ const Header = ({
       {path(['userId'])(user) === path(['postedBy', 'userId'])(post) && archived ?
         <React.Fragment>
           <TouchableOpacity style={styling.headerAction} onPress={handleOptionsPress}>
-            <MoreIcon fill={theme.colors.primaryIcon} />
+            <MoreIcon fill={'#333333'} />
           </TouchableOpacity>
 
           <ActionSheet
@@ -134,7 +134,7 @@ const Header = ({
       {path(['userId'])(user) === path(['postedBy', 'userId'])(post) && !archived ?
         <React.Fragment>
           <TouchableOpacity style={styling.headerAction} onPress={handleOptionsPress}>
-            <MoreIcon fill={theme.colors.primaryIcon} />
+            <MoreIcon fill={'#333333'} />
           </TouchableOpacity>
 
           <ActionSheet
@@ -163,7 +163,7 @@ const Header = ({
       {path(['userId'])(user) !== path(['postedBy', 'userId'])(post) ?
         <React.Fragment>
           <TouchableOpacity style={styling.headerAction} onPress={handleOptionsPress}>
-            <MoreIcon fill={theme.colors.primaryIcon} />
+            <MoreIcon fill={'#333333'} />
           </TouchableOpacity>
 
           <ActionSheet
@@ -189,7 +189,7 @@ const styles = theme => StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: theme.spacing.base,
+    padding: 12,
   },
   headerText: {
     paddingHorizontal: 8,
@@ -235,4 +235,4 @@ Header.propTypes = {
   actionSheetRef: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

@@ -7,7 +7,7 @@ import {
 import { BlurView } from '@react-native-community/blur'
 import FeatureComponent from 'templates/Feature'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -44,4 +44,4 @@ Verification.propTypes = {
   theme: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Verification))
+export default withTranslation()(withStyles(Verification))

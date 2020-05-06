@@ -7,9 +7,9 @@ import {
   RefreshControl,
 } from 'react-native'
 import ResultComponent from 'components/Search/Result'
-import { Caption } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -29,12 +29,12 @@ const PostViews = ({
   return (
     <View style={styling.root}>
       <View style={styling.info}>
-        <Caption>{t('Only you can see who viewed your post')}</Caption>
+        <Text>{t('Only you can see who viewed your post')}</Text>
       </View>
       <ScrollView
         refreshControl={
           <RefreshControl
-            tintColor={theme.colors.border}
+            tintColor={'#95a5a6'}
             refreshing={postsViewsGet.status === 'loading'}
           />
         }
@@ -58,7 +58,7 @@ const styles = theme => StyleSheet.create({
     flex: 1,
   },
   info: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
     alignItems: 'center',
   },
 })
@@ -75,4 +75,4 @@ PostViews.propTypes = {
   usersAcceptFollowerUserRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostViews))
+export default withTranslation()(withStyles(PostViews))

@@ -16,7 +16,7 @@ import NativeError from 'templates/NativeError'
 import StoriesComponent from 'components/Stories'
 import ContextComponent from 'components/Cache/Context'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -171,7 +171,7 @@ const PostsList = ({
         scrollEventThrottle={500}
         refreshControl={(
           <RefreshControl
-            tintColor={theme.colors.border}
+            tintColor={'#95a5a6'}
             onRefresh={scroll.handleRefresh}
             refreshing={postsFeedGet.status === 'loading'}
           />
@@ -212,7 +212,7 @@ const PostsList = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   loading: {
     padding: 16,
@@ -262,4 +262,4 @@ PostsList.propTypes = {
   viewabilityConfigRef: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostsList))
+export default withTranslation()(withStyles(PostsList))

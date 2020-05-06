@@ -4,9 +4,9 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -37,9 +37,9 @@ const styles = theme => StyleSheet.create({
   },
   text: {
     opacity: 0.4,
-    color: theme.colors.text,
+    color: '#333333',
     textAlign: 'center',
   },
 })
 
-export default withTranslation()(withTheme(Empty))
+export default withTranslation()(withStyles(Empty))

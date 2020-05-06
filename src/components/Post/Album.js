@@ -6,13 +6,13 @@ import {
   TouchableWithoutFeedback,
   ScrollView,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import path from 'ramda/src/path'
 import LinearGradient from 'react-native-linear-gradient'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -52,7 +52,7 @@ const PostAlbum = ({
           ))}
         </ScrollView>
         <View style={styling.more}>
-          <Caption style={styling.caption}>{t('View album')}</Caption>
+          <Text style={styling.caption}>{t('View album')}</Text>
           <Text style={styling.text}>{path(['album', 'name'])(post)}</Text>
         </View>
       </View>
@@ -63,7 +63,7 @@ const PostAlbum = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -73,7 +73,7 @@ const styles = theme => StyleSheet.create({
   },
   more: {
     justifyContent: 'center',
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
   text: {
     textAlign: 'right',
@@ -93,4 +93,4 @@ PostAlbum.propTypes = {
   post: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostAlbum))
+export default withTranslation()(withStyles(PostAlbum))

@@ -4,12 +4,12 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import path from 'ramda/src/path'
 import dayjs from 'dayjs'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -32,7 +32,7 @@ const Header = ({
 
         <View style={styling.text}>
           <Text style={styling.user}>{path(['data', 'username'])(usersGetProfile)}</Text>
-          <Caption style={styling.date}>{t('Expires {{expiry}}', { expiry: dayjs(story.expiresAt).fromNow() })}</Caption>
+          <Text style={styling.date}>{t('Expires {{expiry}}', { expiry: dayjs(story.expiresAt).fromNow() })}</Text>
         </View>
       </View>
     </View>
@@ -51,10 +51,10 @@ const styles = theme => StyleSheet.create({
     justifyContent: 'center',
   },
   user: {
-    marginLeft: theme.spacing.base,
+    marginLeft: 12,
   },
   date: {
-    marginLeft: theme.spacing.base,
+    marginLeft: 12,
   },
 })
 
@@ -65,4 +65,4 @@ Header.propTypes = {
   usersGetProfile: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

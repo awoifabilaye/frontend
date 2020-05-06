@@ -10,7 +10,7 @@ import AuthHeaderTemplate from 'templates/Auth/Header'
 import AuthErrorTemplate from 'templates/Auth/Error'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -77,4 +77,4 @@ AuthEmail.propTypes = {
   formInitialValues: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(AuthEmail))
+export default withTranslation()(withStyles(AuthEmail))

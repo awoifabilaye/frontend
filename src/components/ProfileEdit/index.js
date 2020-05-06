@@ -8,7 +8,7 @@ import ProfileEditForm from 'components/ProfileEdit/Form'
 import PrivacyForm from 'components/Privacy/Form'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -58,10 +58,10 @@ const ProfileEdit = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -80,5 +80,5 @@ ProfileEdit.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileEdit))
+export default withTranslation()(withStyles(ProfileEdit))
 

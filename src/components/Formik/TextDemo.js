@@ -5,10 +5,10 @@ import {
   View,
   TextInput,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import { ErrorMessage } from 'formik'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -49,7 +49,7 @@ const TextDemo = ({
         onBlur={form.handleBlur(name)}
         value={value}
         placeholder={placeholder}
-        placeholderTextColor={theme.colors.placeholder}
+        placeholderTextColor={'#95a5a6'}
         autoCapitalize="none"
         multiline={multiline}
         keyboardType={keyboardType}
@@ -77,7 +77,7 @@ const styles = theme => StyleSheet.create({
     padding: 0,
     margin: 0,
     fontSize: 14,
-    color: theme.colors.text,
+    color: '#333333',
     textAlignVertical: 'top',
   },
   error: {
@@ -99,4 +99,4 @@ TextDemo.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(TextDemo))
+export default withTranslation()(withStyles(TextDemo))

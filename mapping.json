@@ -1,0 +1,37 @@
+{
+  "strict": {
+    "text-font-family": "System",
+
+    "text-heading-1-font-size": 32,
+    "text-heading-1-font-weight": "700",
+
+    "text-heading-2-font-size": 26,
+    "text-heading-2-font-weight": "700",
+
+    "text-heading-3-font-size": 20,
+    "text-heading-3-font-weight": "700",
+
+    // "text-heading-4-font-size": 36,
+    "text-heading-4-font-weight": "700",
+
+    // "text-heading-5-font-size": 18,
+    "text-heading-5-font-weight": "700",
+
+    // Same for `h2...h6`
+
+    // "text-subtitle-1-font-size": 15,
+    "text-subtitle-1-font-weight": "700",
+    // Same for `s2`
+
+    // "text-paragraph-1-font-size": 15,
+    "text-paragraph-1-font-weight": "400",
+    // Same for `p2`
+
+    // "text-caption-1-font-size": 12,
+    "text-caption-1-font-weight": "400",
+    // Same for `c2`
+
+    // "text-label-font-size": 12,
+    "text-label-font-weight": "700",
+  }
+}

@@ -5,12 +5,12 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import PendingIcon from 'assets/svg/post/Pending'
 import * as navigationActions from 'navigation/actions'
 import path from 'ramda/src/path'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -37,7 +37,7 @@ const PendingRequests = ({
           <TouchableOpacity style={styling.content} onPress={navigationActions.navigateProfileRequests(navigation)}>
             <Text style={styling.title}>{t('You have {{number}} new request', { number: usersGetPendingFollowers.data.length })}</Text>
             <View style={styling.caption}>
-              <Caption style={styling.subtitle}>{t('Follower request from')} {usersGetPendingFollowers.data.map(user => user.username)}</Caption>
+              <Text style={styling.subtitle}>{t('Follower request from')} {usersGetPendingFollowers.data.map(user => user.username)}</Text>
             </View>
           </TouchableOpacity>
         : null}
@@ -46,7 +46,7 @@ const PendingRequests = ({
           <TouchableOpacity style={styling.content} onPress={navigationActions.navigateProfileRequests(navigation)}>
             <Text style={styling.title}>{t('You have {{number}} new requests', { number: usersGetPendingFollowers.data.length })}</Text>
             <View style={styling.caption}>
-              <Caption style={styling.subtitle}>{t('Follower requests from')} {usersGetPendingFollowers.data.map(user => user.username)} {t('and others')}</Caption>
+              <Text style={styling.subtitle}>{t('Follower requests from')} {usersGetPendingFollowers.data.map(user => user.username)} {t('and others')}</Text>
             </View>
           </TouchableOpacity>
         : null}
@@ -62,8 +62,8 @@ const styles = theme => StyleSheet.create({
   root: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: theme.spacing.base,
-    backgroundColor: theme.colors.backgroundPrimary,
+    padding: 12,
+    backgroundColor: '#ffffff',
   },
   avatar: {
     width: 44,
@@ -105,4 +105,4 @@ PendingRequests.propTypes = {
   usersGetPendingFollowers: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PendingRequests))
+export default withTranslation()(withStyles(PendingRequests))

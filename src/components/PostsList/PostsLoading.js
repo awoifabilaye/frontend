@@ -8,7 +8,7 @@ import GridComponent from 'templates/Grid'
 import GridItemComponent from 'templates/GridItem'
 import * as Animatable from 'react-native-animatable'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -44,7 +44,7 @@ const styles = theme => StyleSheet.create({
   item: {
     width: '100%',
     height: '100%',
-    backgroundColor: theme.colors.disabled,
+    backgroundColor: '#95a5a6',
     opacity: 0.8,
   },
 })
@@ -59,4 +59,4 @@ PostsGrid.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostsGrid))
+export default withTranslation()(withStyles(PostsGrid))

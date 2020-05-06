@@ -7,9 +7,9 @@ import {
 } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 import { RectButton } from 'react-native-gesture-handler'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -61,7 +61,7 @@ const Comments = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   row: {
     flex: 1,
@@ -79,4 +79,4 @@ Comments.propTypes = {
   onPress: PropTypes.any,
 }
 
-export default withTheme(Comments)
+export default withStyles(Comments)

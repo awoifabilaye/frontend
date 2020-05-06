@@ -8,7 +8,7 @@ import {
 import PrivacyForm from 'components/Privacy/Form'
 import Disclaimer from 'components/Privacy/Disclaimer'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,11 +48,11 @@ const Privacy = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
-    padding: theme.spacing.base,
+    backgroundColor: '#ffffff',
+    padding: 12,
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -69,4 +69,4 @@ Privacy.propTypes = {
   toggleVerificationHidden: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Privacy))
+export default withTranslation()(withStyles(Privacy))

@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -44,4 +44,4 @@ RowsTemplate.propTypes = {
   items: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(RowsTemplate))
+export default withTranslation()(withStyles(RowsTemplate))

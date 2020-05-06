@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-import { withTheme, Text } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
+import { Text } from '@ui-kitten/components'
 import { withTranslation } from 'react-i18next'
 
 const HeaderRight = ({
@@ -42,11 +43,11 @@ HeaderRight.defaultProps = {
 
 const styles = theme => StyleSheet.create({
   headerRight: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
     fontSize: 16,
     fontWeight: '700',
     color: '#3498db',
   },
 })
 
-export default withTranslation()(withTheme(HeaderRight))
+export default withTranslation()(withStyles(HeaderRight))

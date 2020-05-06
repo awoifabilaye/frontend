@@ -9,7 +9,7 @@ import PostCreateForm from 'components/PostCreate/Form'
 import FormLifetime from 'components/PostCreate/FormLifetime'
 import FormAlbums from 'components/PostCreate/FormAlbums'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -85,11 +85,11 @@ PostCreateComponent.propTypes = {
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
-export default withTranslation()(withTheme(PostCreateComponent))
+export default withTranslation()(withStyles(PostCreateComponent))

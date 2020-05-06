@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import Layout from 'constants/Layout'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -57,4 +57,4 @@ RowsItemTemplate.propTypes = {
   hasBorders: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(RowsItemTemplate))
+export default withTranslation()(withStyles(RowsItemTemplate))

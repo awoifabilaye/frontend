@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import { getDimensionsFromPostSize } from 'services/Camera'
 import CacheComponent from 'components/Cache'
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import ContextComponent from 'components/PostsList/Context'
 import { initializePriorityQueue } from 'store/ducks/cache/service'
 
@@ -63,7 +63,7 @@ const styles = theme => StyleSheet.create({
   },
 })
 
-export default withTheme((props) => (
+export default withStyles((props) => (
   <ContextComponent.Consumer>
     {(contextProps) => (
       <PinchZoom {...contextProps} {...props} />

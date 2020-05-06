@@ -5,11 +5,11 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import path from 'ramda/src/path'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -32,7 +32,7 @@ const ProfilePhoto = ({
       <View style={styling.status}>
         <TouchableOpacity style={styling.content} onPress={() => {}}>
           <View style={styling.caption}>
-            <Caption style={styling.subtitle}>{t('Upload this photo to set as profile photo or choose from your existing posts')}</Caption>
+            <Text style={styling.subtitle}>{t('Upload this photo to set as profile photo or choose from your existing posts')}</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity style={styling.icon} onPress={() => postsCreateRequest({
@@ -51,8 +51,8 @@ const styles = theme => StyleSheet.create({
   root: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: theme.spacing.base,
-    backgroundColor: theme.colors.backgroundSecondary,
+    padding: 12,
+    backgroundColor: '#bdc3c7',
   },
   status: {
     flexDirection: 'row',
@@ -91,4 +91,4 @@ ProfilePhoto.propTypes = {
   postsCreateRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfilePhoto))
+export default withTranslation()(withStyles(ProfilePhoto))

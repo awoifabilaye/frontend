@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import path from 'ramda/src/path'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import Avatar from 'templates/Avatar'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -69,7 +69,7 @@ const ReactionsPreviewTemplate = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
     marginBottom: 6,
   },
   profile: {
@@ -97,4 +97,4 @@ ReactionsPreviewTemplate.propTypes = {
   post: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ReactionsPreviewTemplate))
+export default withTranslation()(withStyles(ReactionsPreviewTemplate))

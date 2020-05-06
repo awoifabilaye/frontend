@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import CloseIcon from 'assets/svg/header/Close'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -21,7 +21,7 @@ const ModalHeader = ({
   return (
     <View style={styling.header}>
       <TouchableOpacity style={styling.icon} onPress={onPress}>
-        <CloseIcon fill={theme.colors.primaryIcon} />
+        <CloseIcon fill={'#333333'} />
       </TouchableOpacity>
     </View>
   )
@@ -33,10 +33,10 @@ const styles = theme => StyleSheet.create({
     height: 60,
     justifyContent: 'center',
     alignItems: 'flex-end',
-    padding: theme.spacing.base,
+    padding: 12,
   },
   icon: {
-    backgroundColor: `${theme.colors.backgroundSecondary}99`,
+    backgroundColor: `${'#bdc3c7'}99`,
     padding: 6,
     borderRadius: 100,
   },
@@ -46,4 +46,4 @@ ModalHeader.propTypes = {
   theme: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ModalHeader))
+export default withTranslation()(withStyles(ModalHeader))

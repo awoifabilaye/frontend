@@ -13,7 +13,7 @@ import * as navigationActions from 'navigation/actions'
 import ActionSheet from 'react-native-actionsheet'
 import HeaderRight from 'navigation/HeaderRight'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -88,20 +88,20 @@ const Album = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   header: {
     zIndex: 2,
   },
   content: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
   headline: {
     fontSize: 20,
     fontWeight: '600',
   },
   bottomSpacing: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
 
   albums: {
@@ -133,5 +133,5 @@ Album.propTypes = {
 }
 
 export default withTranslation()(
-  withTheme(Album)
+  withStyles(Album)
 )

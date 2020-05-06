@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 
 import { ThemesContext } from 'navigation/context'
 import * as navigationOptions from 'navigation/options'
@@ -33,4 +33,4 @@ const SearchNavigator = () => {
   )
 }
 
-export default withTheme(SearchNavigator)
+export default withStyles(SearchNavigator)

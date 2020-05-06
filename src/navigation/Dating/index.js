@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 
 import * as navigationOptions from 'navigation/options'
 import DatingScreen from 'screens/DatingScreen'
@@ -21,4 +21,4 @@ const DatingNavigator = ({ theme }) => {
   )
 }
 
-export default withTheme(DatingNavigator)
+export default withStyles(DatingNavigator)

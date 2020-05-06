@@ -4,12 +4,12 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Slider from '@react-native-community/slider'
 import Layout from 'constants/Layout'
 import LifetimeIndicator from 'components/PostCreate/LifetimeIndicator'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,15 +48,15 @@ const FormLifetime = ({
   return (
     <View style={styling.root}>
       <Text>{t('Post will be available {{lifetime}}', { lifetime: getTextByValue(t)(values.lifetime) })}</Text>
-      <Caption>{t('All posts become stories when they are 24 hours from expiring')}</Caption>
+      <Text>{t('All posts become stories when they are 24 hours from expiring')}</Text>
 
       <Slider
         style={styling.slider}
         minimumValue={1}
         step={1}
         maximumValue={5}
-        minimumTrackTintColor={theme.colors.primary}
-        maximumTrackTintColor={theme.colors.disabled}
+        minimumTrackTintColor={'#2ecc71'}
+        maximumTrackTintColor={'#95a5a6'}
         value={getIndexByValue(values.lifetime)}
         onValueChange={(value) => setFieldValue('lifetime', getValueByIndex(value))}
       />
@@ -76,7 +76,7 @@ const styles = theme => StyleSheet.create({
   slider: {
     width: Layout.window.width - 24,
     height: 30,
-    marginTop: theme.spacing.base,
+    marginTop: 12,
   },
   sliderIndicator: {
   },
@@ -90,4 +90,4 @@ FormLifetime.propTypes = {
   setFieldValue: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(FormLifetime))
+export default withTranslation()(withStyles(FormLifetime))

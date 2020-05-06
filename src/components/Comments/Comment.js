@@ -5,15 +5,15 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Paragraph, Caption, Text } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import dayjs from 'dayjs'
 import * as navigationActions from 'navigation/actions'
 import reactStringReplace from 'react-string-replace'
 import path from 'ramda/src/path'
 import pathOr from 'ramda/src/pathOr'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -36,7 +36,7 @@ const Comment = ({
         />
       </TouchableOpacity>
       <View style={styling.comment}>
-        <Paragraph>
+        <Text>
           {[
             /**
              * Username of comment owner
@@ -59,8 +59,8 @@ const Comment = ({
               return <Text style={styling.textDefault}>{`@${match}`}</Text>
             })
           ]}
-        </Paragraph>
-        <Caption>{dayjs(path(['commentedAt'])(comment)).from(dayjs())}</Caption>
+        </Text>
+        <Text>{dayjs(path(['commentedAt'])(comment)).from(dayjs())}</Text>
       </View>
     </View>
   )
@@ -75,16 +75,16 @@ const styles = theme => StyleSheet.create({
   },
   comment: {
     flex: 1,
-    marginLeft: theme.spacing.base,
+    marginLeft: 12,
   },
   author: {
     fontWeight: '700',
   },
   textDefault: {
-    color: theme.colors.text,
+    color: '#333333',
   },
   textUsername: {
-    color: theme.colors.primary,
+    color: '#2ecc71',
   },
 })
 
@@ -94,4 +94,4 @@ Comment.propTypes = {
   comment: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Comment))
+export default withTranslation()(withStyles(Comment))

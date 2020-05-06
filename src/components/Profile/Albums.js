@@ -10,7 +10,7 @@ import path from 'ramda/src/path'
 import PostsLoadingComponent from 'components/PostsList/PostsLoading'
 import ContextComponent from 'components/Cache/Context'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -47,7 +47,7 @@ const ProfileAlbums = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
 })
 
@@ -56,4 +56,4 @@ ProfileAlbums.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileAlbums))
+export default withTranslation()(withStyles(ProfileAlbums))

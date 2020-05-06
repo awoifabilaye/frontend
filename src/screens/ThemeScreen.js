@@ -3,7 +3,6 @@ import ThemeComponent from 'components/Theme'
 import ThemeServiceComponent from 'components/Theme/index.service'
 import ThemeModalComponent from 'components/ThemeModal'
 import FeedScreen from 'screens/FeedScreen'
-import { Provider as PaperProvider } from 'react-native-paper'
 
 class ThemeScreen extends React.Component {
   render() {
@@ -20,9 +19,7 @@ class ThemeScreen extends React.Component {
                 }}
                 onDiscardClick={() => props.themePreviewIdle()}
               >
-                <PaperProvider theme={props.themePreview.data.theme}>
-                  <FeedScreen />
-                </PaperProvider>
+                <FeedScreen />
               </ThemeModalComponent>
             : null}
 

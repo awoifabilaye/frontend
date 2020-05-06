@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { TouchableOpacity } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 
 import { ThemesContext } from 'navigation/context'
 import * as navigationOptions from 'navigation/options'
@@ -99,4 +99,4 @@ const TabNavigator = ({ navigation, route }) => {
   )
 }
 
-export default withTheme(TabNavigator)
+export default withStyles(TabNavigator)

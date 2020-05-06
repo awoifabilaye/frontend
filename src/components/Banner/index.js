@@ -5,10 +5,10 @@ import {
   View,
 } from 'react-native'
 import { ifIphoneX } from 'react-native-iphone-x-helper'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,4 +48,4 @@ Banner.propTypes = {
   theme: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Banner))
+export default withTranslation()(withStyles(Banner))

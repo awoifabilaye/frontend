@@ -11,12 +11,12 @@ import GridItemComponent from 'templates/GridItem'
 import CacheComponent from 'components/Cache'
 import CheckedIcon from 'assets/svg/other/Checked'
 import UncheckedIcon from 'assets/svg/other/Unchecked'
-import { Caption } from 'react-native-paper'
 import HeaderRight from 'navigation/HeaderRight'
 import ProfilePhotoComponent from 'components/ProfilePhoto/ProfilePhoto'
 import UploadingComponent from 'components/PostsList/Uploading'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -45,7 +45,7 @@ const ProfilePhoto = ({
     <View style={styling.root}>
       {!cameraCapture.data.length ?
         <View style={styling.info}>
-          <Caption>{t('You can only set profile photo from your existing posts')}</Caption>
+          <Text>{t('You can only set profile photo from your existing posts')}</Text>
         </View>
       : null}
 
@@ -72,8 +72,8 @@ const ProfilePhoto = ({
             <GridItemComponent
               onPress={() => handlePostPress(post)}
               active={selectedPost.postId === post.postId}
-              activeIcon={<CheckedIcon fill={theme.colors.iconPrimary} />}
-              inactiveIcon={<UncheckedIcon fill={theme.colors.iconPrimary} />}
+              activeIcon={<CheckedIcon fill={'#000000'} />}
+              inactiveIcon={<UncheckedIcon fill={'#000000'} />}
             >
               <CacheComponent
                 images={[
@@ -94,11 +94,11 @@ const ProfilePhoto = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     flexWrap: 'wrap',
   },
   info: {
-    padding: theme.spacing.base,
+    padding: 12,
     alignItems: 'center',
   },
 })
@@ -121,4 +121,4 @@ ProfilePhoto.propTypes = {
   postsCreateIdle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfilePhoto))
+export default withTranslation()(withStyles(ProfilePhoto))

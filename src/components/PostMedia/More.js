@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -49,4 +49,4 @@ MoreComponent.propTypes = {
   onPress: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(MoreComponent))
+export default withTranslation()(withStyles(MoreComponent))

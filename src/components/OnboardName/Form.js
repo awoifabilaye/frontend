@@ -10,7 +10,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -65,7 +65,7 @@ OnboardNameForm.propTypes = {
   loading: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   authCheck,
   authOnboard,
   authOnboardRequest,

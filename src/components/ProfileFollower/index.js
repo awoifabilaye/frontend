@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 import ResultComponent from 'components/Search/Result'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -30,7 +30,7 @@ const ProfileFollower = ({
       <ScrollView
         refreshControl={
           <RefreshControl
-            tintColor={theme.colors.border}
+            tintColor={'#95a5a6'}
             refreshing={false}
           />
         }
@@ -68,4 +68,4 @@ ProfileFollower.propTypes = {
   usersAcceptFollowerUserRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileFollower))
+export default withTranslation()(withStyles(ProfileFollower))

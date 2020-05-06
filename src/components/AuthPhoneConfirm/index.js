@@ -9,7 +9,7 @@ import AuthActionTemplate from 'templates/Auth/Action'
 import AuthHeaderTemplate from 'templates/Auth/Header'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -62,4 +62,4 @@ AuthPhoneConfirm.propTypes = {
   authSigninRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(AuthPhoneConfirm))
+export default withTranslation()(withStyles(AuthPhoneConfirm))

@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
   View,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import RNFS from 'react-native-fs'
 import qs from 'query-string'

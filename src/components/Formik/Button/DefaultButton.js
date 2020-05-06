@@ -4,9 +4,9 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Button } from 'react-native-paper'
+import { Button } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -22,7 +22,7 @@ const DefaultButton = ({
   
 
   const contentStyle = (size === 'compact') ? styling.compactContent : styling.defaultContent
-  const colorStyle = (mode === 'contained') ? { color: theme.colors.buttonText } : {}
+  const colorStyle = (mode === 'contained') ? { color: '#ffffff' } : {}
 
   return (
     <View style={styling.root}>
@@ -62,4 +62,4 @@ DefaultButton.defaultProps = {
   size: 'default',
 }
 
-export default withTranslation()(withTheme(DefaultButton))
+export default withTranslation()(withStyles(DefaultButton))

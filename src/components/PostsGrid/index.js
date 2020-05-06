@@ -12,7 +12,7 @@ import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
 import BellIcon from 'assets/svg/action/Bell'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -30,7 +30,7 @@ const PostsGrid = ({
   const route = useRoute()
 
   const activeIcon = (
-    <View style={{ padding: theme.spacing.base }}><BellIcon fill="red" /></View>
+    <View style={{ padding: 12 }}><BellIcon fill="red" /></View>
   )
 
   return (
@@ -72,7 +72,7 @@ const PostsGrid = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
@@ -94,4 +94,4 @@ PostsGrid.propTypes = {
   priorityQueueInstance: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostsGrid))
+export default withTranslation()(withStyles(PostsGrid))

@@ -6,9 +6,9 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,20 +48,20 @@ const styles = theme => StyleSheet.create({
     fontSize: 16,
   },
   accordion: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
     borderRadius: 4,
   },
   accordionItem: {
-    padding: theme.spacing.base,
+    padding: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   divider: {
-    borderBottomColor: `${theme.colors.border}20`,
+    borderBottomColor: `${'#95a5a6'}20`,
     borderBottomWidth: 0.5,
   },
   icon: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
 })
 
@@ -70,4 +70,4 @@ Accordion.propTypes = {
   items: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Accordion))
+export default withTranslation()(withStyles(Accordion))

@@ -18,7 +18,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import pathOr from 'ramda/src/pathOr'
 import CacheComponent from 'components/Cache'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -120,7 +120,7 @@ const Story = ({
       <View style={styling.backdrop} />
       <BlurView style={styling.blur} />
       <LinearGradient
-        colors={[theme.colors.backgroundPrimary, `transparent`]}
+        colors={['#ffffff', `transparent`]}
         style={styling.gradient}
       />
 
@@ -195,7 +195,7 @@ const styles = theme => StyleSheet.create({
     ...StyleSheet.absoluteFill,
     width: '100%',
     height: '100%',
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     opacity: 0.6,
   },
   blur: {
@@ -237,4 +237,4 @@ Story.propTypes = {
   priorityQueueInstance: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Story))
+export default withTranslation()(withStyles(Story))

@@ -4,9 +4,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native'
-import { Subheading } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -20,7 +20,7 @@ const BottomAction = ({
 
   return (
     <TouchableOpacity style={styling.root} onPress={onPress}>
-      <Subheading style={styling.action}>{children}</Subheading>
+      <Text style={styling.action}>{children}</Text>
     </TouchableOpacity>
   )
 }
@@ -29,13 +29,13 @@ const styles = theme => StyleSheet.create({
   root: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
     height: 80,
   },
   action: {
     fontWeight: '500',
     letterSpacing: 0,
-    color: theme.colors.primary,
+    color: '#2ecc71',
   },
 })
 
@@ -46,4 +46,4 @@ BottomAction.propTypes = {
   onPress: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(BottomAction))
+export default withTranslation()(withStyles(BottomAction))

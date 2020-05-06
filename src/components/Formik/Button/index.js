@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -61,7 +61,7 @@ const styles = theme => StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: theme.colors.disabled,
+    backgroundColor: '#95a5a6',
     justifyContent: 'center',
     opacity: 0.8,
   },
@@ -75,4 +75,4 @@ Button.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Button))
+export default withTranslation()(withStyles(Button))

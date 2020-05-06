@@ -8,9 +8,9 @@ import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
 import path from 'ramda/src/path'
-import { Text, Switch, Caption } from 'react-native-paper'
+import { Text, Switch } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -75,7 +75,7 @@ const Privacy = ({
               content={
                 <View>
                   <Text style={styling.username}>{path(['label'])(privacy)}</Text>
-                  <Caption>{path(['caption'])(privacy)}</Caption>
+                  <Text>{path(['caption'])(privacy)}</Text>
                 </View>
               }
               action={
@@ -96,7 +96,7 @@ const styles = theme => StyleSheet.create({
   root: {
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -113,4 +113,4 @@ Privacy.propTypes = {
   toggleVerificationHidden: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Privacy))
+export default withTranslation()(withStyles(Privacy))

@@ -15,10 +15,10 @@ import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
 import CollapsableComponent from 'templates/Collapsable'
-import { Text, Caption, Switch } from 'react-native-paper'
 import HeaderRight from 'navigation/HeaderRight'
+import { Text, Switch } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -129,7 +129,7 @@ const PostCreateForm = ({
                 content={
                   <View style={styling.user}>
                     <Text style={styling.username}>{path(['label'])(settings)}</Text>
-                    <Caption>{path(['caption'])(settings)}</Caption>
+                    <Text>{path(['caption'])(settings)}</Text>
                   </View>
                 }
                 action={
@@ -150,7 +150,7 @@ const PostCreateForm = ({
 
       {cameraCaptureLength > 1 ?
         <View style={styling.helper}>
-          <Caption>{cameraCaptureLength - 1} more post left to be uploaded</Caption>
+          <Text>{cameraCaptureLength - 1} more post left to be uploaded</Text>
         </View>
       : null}
     </View>
@@ -167,10 +167,10 @@ const styles = theme => StyleSheet.create({
     flex: 1,
   },
   input: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
   title: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
   helper: {
     alignItems: 'center',
@@ -225,4 +225,4 @@ const FormWrapper = ({
   </Formik>
 )
 
-export default withTranslation()(withTheme(FormWrapper))
+export default withTranslation()(withStyles(FormWrapper))

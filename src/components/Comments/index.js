@@ -13,7 +13,7 @@ import SwipeableComponent from 'components/Comments/Swipeable'
 import path from 'ramda/src/path'
 import pathOr from 'ramda/src/pathOr'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -45,7 +45,7 @@ const Comments = ({
         style={styling.comments}
         refreshControl={
           <RefreshControl
-            tintColor={theme.colors.border}
+            tintColor={'#95a5a6'}
             refreshing={postsCommentsGet.status === 'loading'}
           />
         }
@@ -85,14 +85,14 @@ const Comments = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   comments: {
     flex: 1,
   },
   comment: {
-    paddingHorizontal: theme.spacing.base,
-    marginBottom: theme.spacing.base,
+    paddingHorizontal: 12,
+    marginBottom: 12,
   },
   form: {
     ...ifIphoneX({
@@ -117,4 +117,4 @@ Comments.propTypes = {
   viewabilityConfigRef: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Comments))
+export default withTranslation()(withStyles(Comments))

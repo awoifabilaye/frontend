@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -43,13 +43,13 @@ const styles = theme => StyleSheet.create({
   progressItemActive: {
     flex: 1,
     height: 2,
-    backgroundColor: theme.colors.button,
+    backgroundColor: '#3498db',
     marginHorizontal: 4,
   },
   progressItem: {
     flex: 1,
     height: 2,
-    backgroundColor: theme.colors.primaryIcon,
+    backgroundColor: '#333333',
     marginHorizontal: 4,
   },
 })
@@ -65,4 +65,4 @@ StepsTemplate.propTypes = {
   currentStep: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(StepsTemplate))
+export default withTranslation()(withStyles(StepsTemplate))

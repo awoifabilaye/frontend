@@ -5,7 +5,7 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import useInterval from 'react-use/lib/useInterval'
 import useBoolean from 'react-use/lib/useBoolean'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -43,8 +43,8 @@ const Button = ({
         size={90}
         width={6}
         fill={Math.ceil(count / 15 * 100)}
-        tintColor={theme.colors.primary}
-        backgroundColor={theme.colors.primaryIcon}
+        tintColor={'#2ecc71'}
+        backgroundColor={'#333333'}
       />
     </TouchableOpacity>
   )
@@ -56,7 +56,7 @@ const styles = theme => StyleSheet.create({
     height: 100,
     borderRadius: 50,
     borderWidth: 20,
-    backgroundColor: theme.colors.primaryIcon,
+    backgroundColor: '#333333',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -69,4 +69,4 @@ Button.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Button))
+export default withTranslation()(withStyles(Button))

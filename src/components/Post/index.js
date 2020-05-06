@@ -20,7 +20,7 @@ import ReactionsPreviewTemplate from 'templates/ReactionsPreview'
 import ViewShot from 'react-native-view-shot'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -165,8 +165,8 @@ const PostComponent = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
-    paddingBottom: theme.spacing.base,
+    backgroundColor: '#ffffff',
+    paddingBottom: 12,
   },
   prev: {
     position: 'absolute',
@@ -220,4 +220,4 @@ PostComponent.propTypes = {
   priorityQueueInstance: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostComponent))
+export default withTranslation()(withStyles(PostComponent))

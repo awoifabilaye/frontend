@@ -6,11 +6,11 @@ import {
   TouchableOpacity,
   ScrollView,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import pathOr from 'ramda/src/pathOr'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -49,7 +49,7 @@ const FormAlbums = ({
       </ScrollView>
 
       <TouchableOpacity onPress={navigationActions.navigateAlbums(navigation)}>
-        <Caption>{t('Choose an album from the list to group your posts')}, {t('or click here to browse all your albums')}</Caption>
+        <Text>{t('Choose an album from the list to group your posts')}, {t('or click here to browse all your albums')}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -66,20 +66,20 @@ const styles = theme => StyleSheet.create({
   },
   album: {
     borderRadius: 4,
-    marginRight: theme.spacing.base,
+    marginRight: 12,
     marginBottom: 6,
     padding: 6,
   },
   albumCreate: {
-    borderColor: theme.colors.border,
+    borderColor: '#95a5a6',
     borderWidth: 1,
 
   },
   albumSelected: {
-    backgroundColor: theme.colors.primary,
+    backgroundColor: '#2ecc71',
   },
   albumDefault: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
   },
 })
 
@@ -91,4 +91,4 @@ FormAlbums.propTypes = {
   albumsGet: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(FormAlbums))
+export default withTranslation()(withStyles(FormAlbums))

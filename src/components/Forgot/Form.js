@@ -9,7 +9,7 @@ import DefaultButton from 'components/Formik/Button/DefaultButton'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -60,7 +60,7 @@ ForgotForm.propTypes = {
   loading: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   authForgot,
   authForgotRequest,
   ...props

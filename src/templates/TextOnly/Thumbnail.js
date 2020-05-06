@@ -4,10 +4,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import LinearGradient from 'react-native-linear-gradient'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -19,15 +19,11 @@ const TextOnlyComponent = ({
   themeCode,
 }) => {
   const styling = styles(theme)
-  
-  const themeSelector = (activeThemeCode) =>
-    ((themes || []).find(theme => theme.key === activeThemeCode) || {}).theme
-  const activeTheme = themeSelector(themeCode) || theme
 
   return (
     <View style={styling.root}>
       <LinearGradient
-        colors={[`${activeTheme.colors.primary}`, `${activeTheme.colors.primary}90`]}
+        colors={[`#2ecc71`, `#2ecc7190`]}
         style={styling.gradient}
       />
       <Text style={styling.text}>{text}</Text>
@@ -40,7 +36,7 @@ const styles = theme => StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: theme.spacing.base,
+    padding: 12,
   },
   text: {
     fontSize: 8,
@@ -58,4 +54,4 @@ TextOnlyComponent.propTypes = {
   post: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(TextOnlyComponent))
+export default withTranslation()(withStyles(TextOnlyComponent))

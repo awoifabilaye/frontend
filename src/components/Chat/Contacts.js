@@ -7,15 +7,15 @@ import {
   RefreshControl,
 } from 'react-native'
 import path from 'ramda/src/path'
-import { Text, Caption } from 'react-native-paper'
 import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
 import Avatar from 'templates/Avatar'
 import * as navigationActions from 'navigation/actions'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -43,7 +43,7 @@ const Contacts = ({
       style={styling.root}
       refreshControl={
         <RefreshControl
-          tintColor={theme.colors.border}
+          tintColor={'#95a5a6'}
           refreshing={loading}
         />
       }
@@ -65,7 +65,7 @@ const Contacts = ({
               content={
                 <TouchableOpacity onPress={navigationActions.navigateChatDirect(navigation, { chat, user: path(['users', 'items', '0'])(chat) })} style={styling.user}>
                   <Text style={styling.username}>{path(['users', 'items', '0', 'username'])(chat)}</Text>
-                  <Caption style={styling.fullname}>{path(['messages', 'items', '0', 'text'])(chat)}</Caption>
+                  <Text style={styling.fullname}>{path(['messages', 'items', '0', 'text'])(chat)}</Text>
                 </TouchableOpacity>
               }
               action={(
@@ -82,7 +82,7 @@ const Contacts = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    padding: theme.spacing.base,
+    padding: 12,
   },
   user: {
     paddingHorizontal: 8,
@@ -101,4 +101,4 @@ Contacts.propTypes = {
   loading: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Contacts))
+export default withTranslation()(withStyles(Contacts))

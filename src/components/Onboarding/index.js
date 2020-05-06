@@ -7,9 +7,9 @@ import {
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import * as navigationActions from 'navigation/actions'
-import { Headline } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -32,7 +32,7 @@ const Onboarding = ({
         />
 
         <View style={styling.content}>
-          <Headline style={styling.headline}>Tap to scroll post</Headline>
+          <Text style={styling.headline}>Tap to scroll post</Text>
         </View>
       </View>
     </View>
@@ -73,4 +73,4 @@ Onboarding.propTypes = {
   handleLibrarySnap: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Onboarding))
+export default withTranslation()(withStyles(Onboarding))

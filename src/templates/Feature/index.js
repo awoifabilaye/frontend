@@ -4,11 +4,11 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import TickIcon from 'assets/svg/feature/Tick'
 import BulletIcon from 'assets/svg/feature/Bullet'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -20,7 +20,7 @@ const Feature = ({
 }) => {
   const styling = styles(theme)
 
-  const fill = active ? theme.colors.primary : theme.colors.text
+  const fill = active ? '#2ecc71' : '#333333'
 
   return (
     <View style={styling.root}>
@@ -42,7 +42,7 @@ const styles = theme => StyleSheet.create({
     width: '80%',
   },
   icon: {
-    marginRight: theme.spacing.base,
+    marginRight: 12,
   },
   text: {
     fontSize: 14,
@@ -53,4 +53,4 @@ Feature.propTypes = {
   theme: PropTypes.any,
 }
 
-export default withTheme(Feature)
+export default withStyles(Feature)

@@ -31,7 +31,7 @@ export const chatHeaderLeft = ({ theme, navigation }) => () => (
 const homeHeaderLeft = ({ theme, navigation }) => () => (
   <TouchableOpacity style={{ padding: 12 }} onPress={navigationActions.navigateCamera(navigation)}>
     <CameraIcon
-      fill={theme.colors.primaryIcon}
+      fill={'#333333'}
     />
   </TouchableOpacity>
 )
@@ -39,7 +39,7 @@ const homeHeaderLeft = ({ theme, navigation }) => () => (
 const homeHeaderTitle = ({ theme }) => () => (
   <LogoIcon
     height="28"
-    fill={theme.colors.primaryIcon}
+    fill={'#333333'}
   />
 )
 
@@ -51,7 +51,7 @@ const homeHeaderRight = ({ theme, navigation }) => () => (
         navigationActions.navigateChat(navigation)()
       }}>
         <DirectIcon
-          fill={theme.colors.primaryIcon}
+          fill={'#333333'}
           uiNotifications={props.uiNotifications}
         />
       </TouchableOpacity>
@@ -61,7 +61,7 @@ const homeHeaderRight = ({ theme, navigation }) => () => (
 
 const AuthNavigationComponent = ({ navigation, theme }) => ({
   headerStyle: {
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     shadowRadius: 0,
     shadowOffset: {
       height: 0,
@@ -70,13 +70,13 @@ const AuthNavigationComponent = ({ navigation, theme }) => ({
     shadowColor: 'transparent',
   },
   headerTitleStyle: {
-    color: theme.colors.text,
+    color: '#333333',
   },
 })
 
 const HomeNavigationComponent = ({ navigation, theme }) => ({
   headerStyle: {
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     shadowRadius: 0,
     shadowOffset: {
       height: 0,
@@ -114,8 +114,8 @@ export const tabNavigatorAuthProps = ({ theme }) => ({
     backgroundColor: 'white',
   },
   tabBarOptions: {
-    activeTintColor: theme.colors.primary,
-    inactiveTintColor: theme.colors.primary,
+    activeTintColor: '#2ecc71',
+    inactiveTintColor: '#2ecc71',
   },
   pager,
 })
@@ -125,7 +125,7 @@ export const stackNavigatorDefaultProps = ({ theme }) => ({
     headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
   },
   cardStyle: {
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   gestureEnabled: 'vertical',
 })
@@ -137,7 +137,7 @@ export const stackNavigatorCardProps = ({ theme }) => ({
     ...TransitionPresets.ModalPresentationIOS,
   },
   cardStyle: {
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   mode: 'modal',
 })
@@ -153,7 +153,7 @@ export const stackScreenDefaultProps = ({ theme }) => ({
       vertical: Layout.window.height,
     },
     cardStyle: {
-      backgroundColor: theme.colors.backgroundPrimary,
+      backgroundColor: '#ffffff',
     },
   }),
 })
@@ -166,10 +166,10 @@ export const stackScreenAuthProps = ({ theme }) => ({ options } = {}) => ({
     ...AuthNavigationComponent({ ...props, theme }),
     gestureEnabled: false,
     cardStyle: {
-      backgroundColor: theme.colors.backgroundPrimary,
+      backgroundColor: '#ffffff',
     },
     headerStyle: {
-      backgroundColor: theme.colors.primary,
+      backgroundColor: '#2ecc71',
       shadowRadius: 0,
       shadowOffset: {
         height: 0,
@@ -193,10 +193,10 @@ export const stackScreenOnboardProps = ({ theme }) => ({
     ...AuthNavigationComponent({ ...props, theme }),
     gestureEnabled: false,
     cardStyle: {
-      backgroundColor: theme.colors.backgroundPrimary,
+      backgroundColor: '#ffffff',
     },
     headerTitleStyle: {
-      color: theme.colors.backgroundPrimary,
+      color: '#ffffff',
     },
   }),
 })
@@ -211,7 +211,7 @@ export const stackScreenBlankProps = ({ theme }) => ({
       vertical: Layout.window.height,
     },
     cardStyle: {
-      backgroundColor: theme.colors.backgroundPrimary,
+      backgroundColor: '#ffffff',
     },
     headerShown: false,
   }),
@@ -284,7 +284,7 @@ export const stackScreenCardProps = ({ theme }) => ({
       vertical: Layout.window.height,
     },
     cardStyle: {
-      backgroundColor: theme.colors.backgroundPrimary,
+      backgroundColor: '#ffffff',
     },
     cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
     header: () => null,

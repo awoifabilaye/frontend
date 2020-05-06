@@ -4,9 +4,9 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Headline, Subheading } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -20,16 +20,22 @@ const Header = ({
 
   return (
     <View style={styling.root}>
-      <Headline>{title}</Headline>
-      <Subheading>{subtitle}</Subheading>
+      <Text category="h2" status="primary" style={styling.title}>{title}</Text>
+      <Text category="h3" status="basic" style={styling.subtitle}>{subtitle}</Text>
     </View>
   )
 }
 
 const styles = theme => StyleSheet.create({
   root: {
-    marginVertical: theme.spacing.base * 6,
+    marginVertical: 12 * 6,
     alignItems: 'center',
+  },
+  title: {
+    marginBottom: 12,
+  },
+  subtitle: {
+    textAlign: 'center',
   },
 })
 
@@ -40,4 +46,4 @@ Header.propTypes = {
   subtitle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

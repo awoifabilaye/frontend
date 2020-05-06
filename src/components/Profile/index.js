@@ -17,7 +17,7 @@ import path from 'ramda/src/path'
 import pathOr from 'ramda/src/pathOr'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -119,7 +119,7 @@ const Profile = ({
       scrollEventThrottle={400}
       refreshControl={(
         <RefreshControl
-          tintColor={theme.colors.border}
+          tintColor={'#95a5a6'}
           onRefresh={scroll.handleRefresh}
           refreshing={postsGet.status === 'loading'}
         />
@@ -185,7 +185,7 @@ const Profile = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   component: {
     flexDirection: 'row',
@@ -228,4 +228,4 @@ Profile.propTypes = {
   albumsGetMoreRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Profile))
+export default withTranslation()(withStyles(Profile))

@@ -4,15 +4,15 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Subheading } from 'react-native-paper'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 import * as navigationActions from 'navigation/actions'
 import UploadingComponent from 'components/PostsList/Uploading'
 import FeatureComponent from 'templates/Feature'
 import path from 'ramda/src/path'
 import Avatar from 'templates/Avatar'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -72,13 +72,13 @@ const OnboardPhoto = ({
     <View style={styling.root}>
       {failureVisibility && profileEditing ?
         <View style={[styling.content, styling.padding]}>
-          <Subheading style={styling.subheading}>{t('Processing.')}</Subheading>
+          <Text style={styling.subheading}>{t('Processing.')}</Text>
         </View>
       : null}
 
       {failureVisibility && !profileEditing ?
         <View style={[styling.content, styling.padding]}>
-          <Subheading style={styling.subheading}>{t('Your photo verification has failed.')}</Subheading>
+          <Text style={styling.subheading}>{t('Your photo verification has failed.')}</Text>
 
           <View style={styling.action}>
             <FeatureComponent active>{t('The Photo must be uncropped')}</FeatureComponent>
@@ -95,7 +95,7 @@ const OnboardPhoto = ({
 
       {helperVisiblity && !profileEditing ?
         <View style={[styling.content, styling.padding]}>
-          <Subheading style={styling.subheading}>{t('Please choose a profile picture to get started!')}</Subheading>
+          <Text style={styling.subheading}>{t('Please choose a profile picture to get started!')}</Text>
 
           <View style={styling.action}>
             <DefaultButton label={t('Take a Photo')} onPress={navigationActions.navigateOnboardCamera(navigation, { nextRoute: 'OnboardPhoto' })} />
@@ -133,7 +133,7 @@ const OnboardPhoto = ({
             />
           </View>
 
-          <Subheading style={styling.subheading}>{t('Please choose a profile picture to get started!')}</Subheading>
+          <Text style={styling.subheading}>{t('Please choose a profile picture to get started!')}</Text>
 
           <View style={styling.action}>
             <DefaultButton label={t('Upload this photo')} onPress={() => postsCreateRequest({
@@ -185,4 +185,4 @@ OnboardPhoto.propTypes = {
   profileEditing: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(OnboardPhoto))
+export default withTranslation()(withStyles(OnboardPhoto))

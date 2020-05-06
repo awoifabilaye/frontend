@@ -7,7 +7,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import ActionSheet from 'react-native-actionsheet'
 import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
@@ -28,8 +27,9 @@ import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
 import codePush from 'react-native-code-push' 
 import useAsync from 'react-use/lib/useAsync'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -63,12 +63,12 @@ const Settings = ({
   // {
   //   label: t('Join Diamond'),
   //   onPress: () => navigation.navigate('Membership'),
-  //   icon: <DiamondIcon fill={theme.colors.text} />,
+  //   icon: <DiamondIcon fill={'#333333'} />,
   // }
   // {
   //   label: t('Change Language'),
   //   onPress: () => navigation.navigate('Translation'),
-  //   icon: <LanguageIcon fill={theme.colors.text} />,
+  //   icon: <LanguageIcon fill={'#333333'} />,
   // }
 
   return (
@@ -98,31 +98,31 @@ const Settings = ({
       <RowsComponent items={[{
         label: t('Edit Profile'),
         onPress: () => navigation.navigate('ProfileEdit'),
-        icon: <EditIcon fill={theme.colors.text} />,
+        icon: <EditIcon fill={'#333333'} />,
       }, {
         label: t('Change Profile Photo'),
         onPress: () => actionSheetRef.current.show(),
-        icon: <PhotoIcon fill={theme.colors.text} />,
+        icon: <PhotoIcon fill={'#333333'} />,
       }, {
         label: t('Choose Theme'),
         onPress: () => navigation.navigate('Theme'),
-        icon: <ThemeIcon fill={theme.colors.text} />,
+        icon: <ThemeIcon fill={'#333333'} />,
       }, {
         label: t('Archived Photos'),
         onPress: () => navigation.navigate('Archived'),
-        icon: <ArchiveIcon fill={theme.colors.text} />,
+        icon: <ArchiveIcon fill={'#333333'} />,
       }, {
         label: t('Mental Health & Privacy Settings'),
         onPress: () => navigation.navigate('Privacy'),
-        icon: <PrivacyIcon fill={theme.colors.text} />,
+        icon: <PrivacyIcon fill={'#333333'} />,
       }, {
         label: t('Diamond Payout'),
         onPress: () => navigation.navigate('Payout'),
-        icon: <CashIcon fill={theme.colors.text} />,
+        icon: <CashIcon fill={'#333333'} />,
       }, {
         label: t('Signout'),
         onPress: () => authSignoutRequest(),
-        icon: <SignoutIcon fill={theme.colors.text} />,
+        icon: <SignoutIcon fill={'#333333'} />,
       }]}>
         {(settings) => (
           <RowsItemComponent hasBorders>
@@ -137,7 +137,7 @@ const Settings = ({
                 </View>
               }
               action={
-                <SettingsAvatar icon={<NextIcon fill={theme.colors.text} />} />
+                <SettingsAvatar icon={<NextIcon fill={'#333333'} />} />
               }
             />
           </RowsItemComponent>
@@ -146,7 +146,7 @@ const Settings = ({
 
       {!codePushVersion.loading ?
         <View style={styling.helper}>
-          <Caption>version: {path(['value', 'appVersion'])(codePushVersion)} [{path(['value', 'label'])(codePushVersion)}]</Caption>
+          <Text>version: {path(['value', 'appVersion'])(codePushVersion)} [{path(['value', 'label'])(codePushVersion)}]</Text>
         </View>
       : null}
     </ScrollView>
@@ -156,11 +156,11 @@ const Settings = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
-    padding: theme.spacing.base,
+    backgroundColor: '#ffffff',
+    padding: 12,
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
   details: {
     alignItems: 'center',
@@ -180,4 +180,4 @@ Settings.propTypes = {
   authSignoutRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Settings))
+export default withTranslation()(withStyles(Settings))

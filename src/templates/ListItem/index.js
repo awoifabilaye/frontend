@@ -10,7 +10,7 @@ import PinchZoom from 'templates/ListItem/PinchZoom'
 import Layout from 'constants/Layout'
 import LinearGradient from 'react-native-linear-gradient'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -38,7 +38,7 @@ const ListItemTemplate = ({
       feedRef={feedRef}
     >
       <LinearGradient
-        colors={[`${primaryGradient}`, `${theme.colors.backgroundSecondary}50`]}
+        colors={[`${primaryGradient}`, `#e74c3c50`]}
         style={styling.gradient}
       />
 
@@ -79,4 +79,4 @@ ListItemTemplate.propTypes = {
   children: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ListItemTemplate))
+export default withTranslation()(withStyles(ListItemTemplate))

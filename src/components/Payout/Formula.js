@@ -4,9 +4,9 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Paragraph } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -20,13 +20,13 @@ const Formula = ({
     <View style={styling.root}>
       <View style={styling.output}>
         <View style={styling.divident}>
-          <Paragraph style={styling.paragraph}>{t('(Total Revenue) * (Processing Fees)')}</Paragraph>
+          <Text style={styling.paragraph}>{t('(Total Revenue) * (Processing Fees)')}</Text>
         </View>
 
         <View style={styling.line}></View>
 
         <View style={styling.divisor}>
-          <Paragraph style={styling.paragraph}>{t('(Total 💎Views)')}</Paragraph>
+          <Text style={styling.paragraph}>{t('(Total 💎Views)')}</Text>
         </View>
       </View>
     </View>
@@ -35,7 +35,7 @@ const Formula = ({
   
 const styles = theme => StyleSheet.create({
   root: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
     padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -57,7 +57,7 @@ const styles = theme => StyleSheet.create({
   },
   line: {
     borderTopWidth: 0.5,
-    borderColor: theme.colors.text,
+    borderColor: '#333333',
     width: '100%',
     marginVertical: 8,
   },
@@ -72,4 +72,4 @@ Formula.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Formula))
+export default withTranslation()(withStyles(Formula))

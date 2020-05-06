@@ -3,11 +3,10 @@ import PropTypes from 'prop-types'
 import {
   StyleSheet,
   View,
-  TouchableOpacity,
 } from 'react-native'
-import { Caption, Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -20,19 +19,19 @@ const Private = ({
   return (
     <View style={styling.root}>
       <Text>{t('This account is private')} </Text>
-      <Caption>{t('Follow this account to see their photos')}</Caption>
+      <Text>{t('Follow this account to see their photos')}</Text>
     </View>
   )
 }
 
 const styles = theme => StyleSheet.create({
   root: {
-    padding: theme.spacing.base,
-    marginVertical: theme.spacing.base,
+    padding: 12,
+    marginVertical: 12,
     alignItems: 'center',
   },
   link: {
-    color: theme.colors.primary,
+    color: '#2ecc71',
     fontWeight: '500',
   },
 })
@@ -42,4 +41,4 @@ Private.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Private))
+export default withTranslation()(withStyles(Private))

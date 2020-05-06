@@ -4,9 +4,9 @@ import {
   View,
   StyleSheet,
 } from 'react-native'
-import { Subheading } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -18,15 +18,15 @@ const Success = ({
   
   return (
     <View style={styling.root}>
-      <Subheading>{t('All posts have been submitted')}</Subheading>
-      <Subheading>{t('You can safely close this window now')}</Subheading>
+      <Text>{t('All posts have been submitted')}</Text>
+      <Text>{t('You can safely close this window now')}</Text>
     </View>
   )
 }
 
 const styles = theme => StyleSheet.create({
   root: {
-    padding: theme.spacing.base,
+    padding: 12,
     alignItems: 'center',
   },
   text: {
@@ -40,4 +40,4 @@ Success.propTypes = {
   setFieldValue: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Success))
+export default withTranslation()(withStyles(Success))

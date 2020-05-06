@@ -13,7 +13,7 @@ import path from 'ramda/src/path'
 import useDebounce from 'react-use/lib/useDebounce'
 import CloseIcon from 'assets/svg/camera/Close'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -101,7 +101,7 @@ SearchForm.propTypes = {
   values: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   usersSearch,
   usersSearchRequest,
   ...props

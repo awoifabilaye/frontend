@@ -6,11 +6,9 @@ import {
 } from 'react-native'
 import Modal from 'react-native-modal'
 import DefaultButton from 'components/Formik/Button/DefaultButton'
-import { Provider as PaperProvider } from 'react-native-paper'
-import { useSelector } from 'react-redux'
-import * as themeSelector from 'store/ducks/theme/selectors'
+import { withStyles } from '@ui-kitten/components'
 
-import { withTheme, Paragraph } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -22,28 +20,24 @@ const ThemeModal = ({
   onApplyClick,
   onDiscardClick,
 }) => {
-  const activeTheme = useSelector(themeSelector.userThemeSelector('black.green'))
-
   const styling = styles(theme)
   
   return (
     <Modal isVisible={isVisible}>
       <View style={styling.root}>
         <View style={styling.header}>
-          <PaperProvider theme={activeTheme}>
-            <View style={styling.action}>
-              <Paragraph style={styling.text}>{t('This is preview of selected theme')}</Paragraph>
-            </View>
+          <View style={styling.action}>
+            <Text style={styling.text}>{t('This is preview of selected theme')}</Text>
+          </View>
 
-            <View style={styling.action}>
-              <View style={styling.actionItem}>
-                <DefaultButton label={t('Apply Theme')} onPress={onApplyClick} />
-              </View>
-              <View style={styling.actionItem}>
-                <DefaultButton label={t('Discard Theme')} onPress={onDiscardClick} />
-              </View>
+          <View style={styling.action}>
+            <View style={styling.actionItem}>
+              <DefaultButton label={t('Apply Theme')} onPress={onApplyClick} />
             </View>
-          </PaperProvider>
+            <View style={styling.actionItem}>
+              <DefaultButton label={t('Discard Theme')} onPress={onDiscardClick} />
+            </View>
+          </View>
         </View>
 
         <View style={styling.screen}>
@@ -85,7 +79,7 @@ const styles = theme => StyleSheet.create({
   },
   actionItem: {
     flex: 1,
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -98,4 +92,4 @@ ThemeModal.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ThemeModal))
+export default withTranslation()(withStyles(ThemeModal))

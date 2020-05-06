@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -62,7 +62,7 @@ const styles = theme => StyleSheet.create({
   },
   photoActive: {
     borderWidth: 2,
-    borderColor: theme.colors.button,
+    borderColor: '#3498db',
     borderRadius: 2,
     padding: 2,
   },
@@ -90,4 +90,4 @@ ThemeAvatarTemplate.propTypes = {
   colors: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ThemeAvatarTemplate))
+export default withTranslation()(withStyles(ThemeAvatarTemplate))

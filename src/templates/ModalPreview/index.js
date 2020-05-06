@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import path from 'ramda/src/path'
 import CacheComponent from 'components/Cache'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -26,7 +26,7 @@ const ModalPreview = ({
   return (
     <View style={styling.preview}>
       <LinearGradient
-        colors={[`${theme.colors.backgroundPrimary}10`, theme.colors.backgroundPrimary]}
+        colors={[`#ecf0f110`, '#ecf0f1']}
         style={styling.gradient}
       />
 
@@ -77,4 +77,4 @@ ModalPreview.propTypes = {
   imageSource: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ModalPreview))
+export default withTranslation()(withStyles(ModalPreview))

@@ -7,11 +7,11 @@ import {
 import ForgotConfirmForm from 'components/ForgotConfirm/Form'
 import Subtitle from 'templates/Subtitle'
 import NativeError from 'templates/NativeError'
-import { Subheading } from 'react-native-paper'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -39,7 +39,7 @@ const ForgotConfirm = ({
 
       <View style={styling.root}>
         <View style={styling.title}>
-          <Subheading>{t('Create new password')}</Subheading>
+          <Text>{t('Create new password')}</Text>
         </View>
         <View style={styling.form}>
           <ForgotConfirmForm
@@ -90,4 +90,4 @@ ForgotConfirm.propTypes = {
   authForgotConfirmIdle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ForgotConfirm))
+export default withTranslation()(withStyles(ForgotConfirm))

@@ -6,12 +6,12 @@ import {
 } from 'react-native'
 import ConfirmForm from 'components/SignupConfirm/Form'
 import Subtitle from 'templates/Subtitle'
-import { Subheading } from 'react-native-paper'
 import NativeError from 'templates/NativeError'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -50,10 +50,10 @@ const SignupConfirm = ({
       <View style={styling.root}>
         <View style={styling.title}>
           {authSignup.payload.usernameType === 'email' ?
-            <Subheading>{t('Enter the code we sent to')} {authSignup.payload.email}</Subheading>
+            <Text>{t('Enter the code we sent to')} {authSignup.payload.email}</Text>
           : null}
           {authSignup.payload.usernameType === 'phone' ?
-            <Subheading>{t('Enter the code we sent to')} {authSignup.payload.phone}</Subheading>
+            <Text>{t('Enter the code we sent to')} {authSignup.payload.phone}</Text>
           : null}
         </View>
         <View style={styling.form}>
@@ -106,4 +106,4 @@ SignupConfirm.propTypes = {
   authSignupConfirmIdle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(SignupConfirm))
+export default withTranslation()(withStyles(SignupConfirm))

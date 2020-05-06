@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 
 import { ThemesContext } from 'navigation/context'
 import * as navigationOptions from 'navigation/options'
@@ -89,7 +89,7 @@ const RootNavigator = () => {
 }
 
 
-const AppNavigator = withTheme(({ theme }) => {
+const AppNavigator = withStyles(({ theme }) => {
   const Tab = createMaterialTopTabNavigator()
   const tabNavigatorDefaultProps = navigationOptions.tabNavigatorDefaultProps()
   return (

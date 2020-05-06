@@ -4,10 +4,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { TextInput, Text } from 'react-native-paper'
 import { ErrorMessage } from 'formik'
+import { Text, Input } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -44,7 +44,7 @@ const TextField = ({
 
   return (
     <View style={styling.root}>
-      <TextInput
+      <Input
         style={styling.input}
         name={name}
         onChangeText={onChangeText}
@@ -52,7 +52,7 @@ const TextField = ({
         onFocus={onFocus}
         value={value}
         placeholder={placeholder}
-        placeholderTextColor={theme.colors.placeholder}
+        placeholderTextColor={'#95a5a6'}
         autoCapitalize="none"
         multiline={multiline}
         keyboardType={keyboardType}
@@ -67,7 +67,7 @@ const TextField = ({
       />
 
       {!hideError ?
-        <ErrorMessage name={name} render={msg => <Text style={styling.error}>{msg}</Text>} />
+        <ErrorMessage name={name} render={msg => <Text>{msg}</Text>} />
       : null}
     </View>
   )
@@ -75,19 +75,10 @@ const TextField = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    position: 'relative',
-    marginTop: -6,
   },
   input: {
-    padding: 0,
-    margin: 0,
-    fontSize: 14,
-    height: 38,
   },
   error: {
-    textAlign: 'right',
-    fontSize: 11,
-    color: 'red',
   },
 })
 
@@ -107,4 +98,4 @@ TextField.propTypes = {
   secureTextEntry: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(TextField))
+export default withTranslation()(withStyles(TextField))

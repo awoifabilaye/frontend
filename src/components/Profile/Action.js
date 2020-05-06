@@ -8,7 +8,7 @@ import DefaultButton from 'components/Formik/Button/DefaultButton'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -115,8 +115,8 @@ const styles = theme => StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: -6,
-    paddingHorizontal: theme.spacing.base,
-    marginBottom: theme.spacing.base,
+    paddingHorizontal: 12,
+    marginBottom: 12,
   },
   item: {
     flex: 1,
@@ -143,4 +143,4 @@ ProfileAction.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileAction))
+export default withTranslation()(withStyles(ProfileAction))

@@ -11,7 +11,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -55,7 +55,7 @@ const styles = theme => StyleSheet.create({
   },
   button: {
     width: 90,
-    marginLeft: theme.spacing.base,
+    marginLeft: 12,
   },
   icon: {
     justifyContent: 'center',
@@ -78,7 +78,7 @@ CommentsForm.propTypes = {
   values: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   commentsAdd,
   commentsAddRequest,
   ...props

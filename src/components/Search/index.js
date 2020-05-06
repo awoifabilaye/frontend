@@ -10,12 +10,12 @@ import HeaderComponent from 'components/Search/Header'
 import FormComponent from 'components/Search/Form'
 import ResultComponent from 'components/Search/Result'
 import PostsGridComponent from 'components/PostsGrid'
-import { Subheading } from 'react-native-paper'
 import path from 'ramda/src/path'
 import PostsLoadingComponent from 'components/PostsList/PostsLoading'
 import ContextComponent from 'components/Cache/Context'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -106,7 +106,7 @@ const SearchComponent = ({
           ref={feedRef}
           refreshControl={
             <RefreshControl
-              tintColor={theme.colors.border}
+              tintColor={'#95a5a6'}
               onRefresh={scroll.handleRefresh}
               refreshing={postsGetTrendingPosts.status === 'loading'}
             />
@@ -134,12 +134,12 @@ const SearchComponent = ({
           ref={feedRef}
           refreshControl={
             <RefreshControl
-              tintColor={theme.colors.border}
+              tintColor={'#95a5a6'}
               refreshing={usersSearch.status === 'loading'}
             />
           }
         >
-          <Subheading style={styling.subheading}>{t('Search Result')}</Subheading>
+          <Text style={styling.subheading}>{t('Search Result')}</Text>
           <ResultComponent
             usersSearch={usersSearch}
             usersFollow={usersFollow}
@@ -158,12 +158,12 @@ const SearchComponent = ({
           ref={feedRef}
           refreshControl={
             <RefreshControl
-              tintColor={theme.colors.border}
+              tintColor={'#95a5a6'}
               refreshing={usersGetTrendingUsers.status === 'loading'}
             />
           }
         >
-          <Subheading style={styling.subheading}>{t('Trending Users')}</Subheading>
+          <Text style={styling.subheading}>{t('Trending Users')}</Text>
           <ResultComponent
             usersSearch={usersGetTrendingUsers}
             usersFollow={usersFollow}
@@ -181,7 +181,7 @@ const SearchComponent = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     flex: 1,
   },
   subheading: {
@@ -215,4 +215,4 @@ SearchComponent.propTypes = {
   themeFetch: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(SearchComponent))
+export default withTranslation()(withStyles(SearchComponent))

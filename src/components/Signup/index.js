@@ -3,13 +3,11 @@ import PropTypes from 'prop-types'
 import {
   View,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native'
 import SignupForm from 'components/Signup/Form'
-import { Headline, Subheading } from 'react-native-paper'
-import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -27,8 +25,8 @@ const Auth = ({
     <React.Fragment>
       <View style={styling.root}>
         <View style={styling.header}>
-          <Headline>{t('Grab Your Username!')}</Headline>
-          <Subheading>{t('You can always change it later')}</Subheading>
+          <Text>{t('Grab Your Username!')}</Text>
+          <Text>{t('You can always change it later')}</Text>
         </View>
 
         <View style={styling.content}>
@@ -59,13 +57,13 @@ const styles = theme => StyleSheet.create({
   action: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
     height: 80,
   },
   actionText: {
     fontWeight: '500',
     letterSpacing: 0,
-    color: theme.colors.primary,
+    color: '#2ecc71',
   },
 })
 
@@ -77,4 +75,4 @@ Auth.propTypes = {
   authSignupRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Auth))
+export default withTranslation()(withStyles(Auth))

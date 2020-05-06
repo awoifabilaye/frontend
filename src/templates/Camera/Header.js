@@ -4,7 +4,7 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native'
 import CloseIcon from 'assets/svg/camera/Close'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -45,7 +45,7 @@ const styles = theme => StyleSheet.create({
   },
   content: {
     flex: 3,
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
   action: {
     flex: 1,
@@ -56,7 +56,7 @@ const styles = theme => StyleSheet.create({
     width: '100%',
   },
   actionItem: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
 })
 
@@ -65,4 +65,4 @@ Header.propTypes = {
   content: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

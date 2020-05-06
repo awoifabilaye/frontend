@@ -5,12 +5,12 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Caption, Headline } from 'react-native-paper'
 import path from 'ramda/src/path'
 import is from 'ramda/src/is'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -28,27 +28,27 @@ const ProfileCounts = ({
   return (
     <View style={styling.root}>
       <View style={styling.item}>
-        <Headline style={styling.itemTitle}>{path(['data', 'postCount'])(usersGetProfile)}</Headline>
-        <Caption style={styling.itemText} numberOfLines={1}>{t('Posts')}</Caption>
+        <Text style={styling.itemTitle}>{path(['data', 'postCount'])(usersGetProfile)}</Text>
+        <Text style={styling.itemText} numberOfLines={1}>{t('Posts')}</Text>
       </View>
       
       <TouchableOpacity style={styling.item} onPress={navigationActions.navigateProfileFollower(navigation, { user: usersGetProfile.data })}>
         {!path(['data', 'followCountsHidden'])(usersGetProfile) && is(Number)(followerCount) ?
-          <Headline style={styling.itemTitle}>{followerCount}</Headline>
+          <Text style={styling.itemTitle}>{followerCount}</Text>
         :
-          <Headline style={styling.itemTitle}>•</Headline>
+          <Text style={styling.itemTitle}>•</Text>
         }
-        <Caption style={styling.itemText} numberOfLines={1}>{t('Followers')}</Caption>
+        <Text style={styling.itemText} numberOfLines={1}>{t('Followers')}</Text>
       </TouchableOpacity>
 
       
       <TouchableOpacity style={styling.item} onPress={navigationActions.navigateProfileFollowed(navigation, { user: usersGetProfile.data })}>
         {!path(['data', 'followCountsHidden'])(usersGetProfile) && is(Number)(followedCount) ?
-          <Headline style={styling.itemTitle}>{followedCount}</Headline>
+          <Text style={styling.itemTitle}>{followedCount}</Text>
         :
-          <Headline style={styling.itemTitle}>•</Headline>
+          <Text style={styling.itemTitle}>•</Text>
         }
-        <Caption style={styling.itemText} numberOfLines={1}>{t('Following')}</Caption>
+        <Text style={styling.itemText} numberOfLines={1}>{t('Following')}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -78,4 +78,4 @@ ProfileCounts.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileCounts))
+export default withTranslation()(withStyles(ProfileCounts))

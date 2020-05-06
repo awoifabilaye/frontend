@@ -10,7 +10,7 @@ import path from 'ramda/src/path'
 import PostsLoadingComponent from 'components/PostsList/PostsLoading'
 import ContextComponent from 'components/Cache/Context'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,7 +48,7 @@ const ProfileFeed = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
 })
 
@@ -57,4 +57,4 @@ ProfileFeed.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileFeed))
+export default withTranslation()(withStyles(ProfileFeed))

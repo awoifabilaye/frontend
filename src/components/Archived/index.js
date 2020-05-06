@@ -10,7 +10,7 @@ import GridItemComponent from 'templates/GridItem'
 import CacheComponent from 'components/Cache'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -66,4 +66,4 @@ Archived.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Archived))
+export default withTranslation()(withStyles(Archived))

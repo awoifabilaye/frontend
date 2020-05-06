@@ -4,11 +4,11 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Subheading, Text, Caption } from 'react-native-paper'
 import path from 'ramda/src/path'
 import dayjs from 'dayjs'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -21,11 +21,11 @@ const ProfileAbout = ({
   
   return (
     <View style={styling.root}>
-      <Subheading style={styling.itemTitle}>{path(['data', 'fullName'])(usersGetProfile)}</Subheading>
+      <Text style={styling.itemTitle}>{path(['data', 'fullName'])(usersGetProfile)}</Text>
       {path(['data', 'bio', 'length'])(usersGetProfile) ?
         <Text style={styling.itemText}>{path(['data', 'bio'])(usersGetProfile)}</Text>
       : null}
-      <Caption style={styling.itemText}>{t('Joined')} {dayjs(path(['data', 'signedUpAt'])(usersGetProfile)).from(dayjs())}</Caption>
+      <Text style={styling.itemText}>{t('Joined')} {dayjs(path(['data', 'signedUpAt'])(usersGetProfile)).from(dayjs())}</Text>
     </View>
   )
 }
@@ -45,4 +45,4 @@ ProfileAbout.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileAbout))
+export default withTranslation()(withStyles(ProfileAbout))

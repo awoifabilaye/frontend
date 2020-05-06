@@ -5,7 +5,7 @@ import {
   View,
 } from 'react-native'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -25,7 +25,7 @@ const Header = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    backgroundColor: theme.colors.backgroundSecondary,
+    backgroundColor: '#bdc3c7',
   },
 })
 
@@ -35,4 +35,4 @@ Header.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

@@ -10,7 +10,7 @@ import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 import HeaderRight from 'navigation/HeaderRight'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -89,7 +89,7 @@ ProfileEditForm.propTypes = {
   PrivacyComponent: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   usersEditProfile,
   usersEditProfileRequest,
   user,

@@ -7,10 +7,10 @@ import {
 import OnboardNameForm from 'components/OnboardName/Form'
 import NativeError from 'templates/NativeError'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { Subheading } from 'react-native-paper'
 import path from 'ramda/src/path'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -38,7 +38,7 @@ const OnboardName = ({
 
       <View style={styling.root}>
         <View style={styling.title}>
-          <Subheading>{t('Enter your full name & reserve your new username')}</Subheading>
+          <Text>{t('Enter your full name & reserve your new username')}</Text>
         </View>
         <View style={styling.form}>
           <OnboardNameForm
@@ -86,4 +86,4 @@ OnboardName.propTypes = {
   authCheck: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(OnboardName))
+export default withTranslation()(withStyles(OnboardName))

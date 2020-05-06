@@ -10,7 +10,7 @@ import CacheComponent from 'components/Cache'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -48,7 +48,7 @@ const AlbumsGrid = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
@@ -68,4 +68,4 @@ AlbumsGrid.propTypes = {
   themeCode: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(AlbumsGrid))
+export default withTranslation()(withStyles(AlbumsGrid))

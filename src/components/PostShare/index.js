@@ -6,7 +6,6 @@ import {
   ScrollView,
 } from 'react-native'
 import path from 'ramda/src/path'
-import { Headline, Caption } from 'react-native-paper'
 import AccordionComponent from 'templates/Accordion'
 import ModalProfileComponent from 'templates/ModalProfile'
 import ModalHeaderComponent from 'templates/ModalHeader'
@@ -14,8 +13,9 @@ import ModalPreviewComponent from 'templates/ModalPreview'
 import dayjs from 'dayjs'
 import * as navigationActions from 'navigation/actions'
 import NativeError from 'templates/NativeError'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -108,7 +108,7 @@ const PostShare = ({
         </View>
 
         <View style={styling.content}>
-          <Headline style={styling.headline}>{t('Store as')}</Headline>
+          <Text style={styling.headline}>{t('Store as')}</Text>
           <View style={styling.bottomSpacing} />
           <AccordionComponent
             items={[
@@ -126,12 +126,12 @@ const PostShare = ({
             ]}
           />
           <View style={styling.bottomSpacing} />
-          <Caption style={[styling.bottomSpacing]}>{t('Prove your post is verified by sharing a link to your REAL profile in it\'s description')}</Caption>
+          <Text style={[styling.bottomSpacing]}>{t('Prove your post is verified by sharing a link to your REAL profile in it\'s description')}</Text>
           <View style={styling.bottomSpacing} />
         </View>
 
         <View style={styling.content}>
-          <Headline style={styling.headline}>{t('Share as')}</Headline>
+          <Text style={styling.headline}>{t('Share as')}</Text>
           <View style={styling.bottomSpacing} />
           <AccordionComponent
             items={[{
@@ -141,7 +141,7 @@ const PostShare = ({
             }]}
           />
           <View style={styling.bottomSpacing} />
-          <Caption style={[styling.bottomSpacing]}>{t('Prove your post is verified by sharing a link to your REAL profile in it\'s description')}</Caption>
+          <Text style={[styling.bottomSpacing]}>{t('Prove your post is verified by sharing a link to your REAL profile in it\'s description')}</Text>
         </View>
       </ScrollView>
     </View>
@@ -151,20 +151,20 @@ const PostShare = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   header: {
     zIndex: 2,
   },
   content: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
   headline: {
     fontSize: 20,
     fontWeight: '600',
   },
   bottomSpacing: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
 })
 
@@ -179,4 +179,4 @@ PostShare.propTypes = {
   handleWatermark: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostShare))
+export default withTranslation()(withStyles(PostShare))

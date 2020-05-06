@@ -9,7 +9,7 @@ import PostEditForm from 'components/PostEdit/Form'
 import FormLifetime from 'components/PostEdit/FormLifetime'
 import FormAlbums from 'components/PostEdit/FormAlbums'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -58,11 +58,11 @@ PostEditComponent.propTypes = {
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
-export default withTranslation()(withTheme(PostEditComponent))
+export default withTranslation()(withStyles(PostEditComponent))

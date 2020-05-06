@@ -9,10 +9,10 @@ import LinearGradient from 'react-native-linear-gradient'
 import TextIcon from 'assets/svg/types/Text'
 import PhotoIcon from 'assets/svg/types/Photo'
 import GalleryIcon from 'assets/svg/types/Gallery'
-import { Subheading } from 'react-native-paper'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -42,7 +42,7 @@ const PostType = ({
             <View style={styling.icon}>
               <PhotoIcon fill="#000000" />
             </View>
-            <Subheading style={styling.text}>{t('Photo')}</Subheading>
+            <Text style={styling.text}>{t('Photo')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styling.type} onPress={() => {
             navigation.popToTop()
@@ -51,7 +51,7 @@ const PostType = ({
             <View style={styling.icon}>
               <GalleryIcon fill="#000000" />
             </View>
-            <Subheading style={styling.text}>{t('Gallery')}</Subheading>
+            <Text style={styling.text}>{t('Gallery')}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styling.type} onPress={() => {
             navigation.popToTop()
@@ -60,7 +60,7 @@ const PostType = ({
             <View style={styling.icon}>
               <TextIcon fill="#000000" />
             </View>
-            <Subheading style={styling.text}>{t('Text')}</Subheading>
+            <Text style={styling.text}>{t('Text')}</Text>
           </TouchableOpacity>
         </View>
 
@@ -68,7 +68,7 @@ const PostType = ({
           navigation.popToTop()
           navigationActions.navigateBack(navigation)()
         }}>
-          <Subheading style={styling.closeText}>{t('x close')}</Subheading>
+          <Text style={styling.closeText}>{t('x close')}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -98,16 +98,16 @@ const styles = theme => StyleSheet.create({
     maxWidth: 300,
     flexDirection: 'row',
     alignSelf: 'center',
-    paddingTop: theme.spacing.base * 2,
-    paddingBottom: theme.spacing.base,
+    paddingTop: 12 * 2,
+    paddingBottom: 12,
   },
   type: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
   close: {
     zIndex: 2,
     alignSelf: 'center',
-    paddingHorizontal: theme.spacing.base * 2,
+    paddingHorizontal: 12 * 2,
   },
   icon: {
     width: 70,
@@ -135,4 +135,4 @@ PostType.propTypes = {
   handleLibrarySnap: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(PostType))
+export default withTranslation()(withStyles(PostType))

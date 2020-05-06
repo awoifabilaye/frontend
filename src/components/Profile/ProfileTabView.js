@@ -8,9 +8,9 @@ import {
 import FeedComponent from 'components/Profile/Feed'
 import AlbumsComponent from 'components/Profile/Albums'
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -29,9 +29,9 @@ const ProfileTabView = ({
   const renderTabBar = props => (
     <TabBar
       {...props}
-      activeColor={theme.colors.primary}
-      inactiveColor={theme.colors.text}
-      indicatorStyle={{ backgroundColor: theme.colors.primary }}
+      activeColor={'#2ecc71'}
+      inactiveColor={'#333333'}
+      indicatorStyle={{ backgroundColor: '#2ecc71' }}
       style={{ backgroundColor: 'transparent' }}
       renderLabel={({ route, focused, color }) => (
         <Text style={{ color, fontSize: 14, fontWeight: '600', margin: 8 }}>
@@ -77,7 +77,7 @@ const Profile = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
 })
 
@@ -100,4 +100,4 @@ Profile.propTypes = {
   routes: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Profile))
+export default withTranslation()(withStyles(Profile))

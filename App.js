@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import { NavigationContainer } from '@react-navigation/native'
 import { AuthProvider } from 'services/providers/App'
-import { Provider as PaperProvider } from 'react-native-paper'
 import codePush from 'react-native-code-push' 
 import { ThemesContext } from 'navigation/context'
 import AuthNavigator from 'navigation/AuthNavigator'
@@ -18,6 +17,9 @@ import { enableScreens } from 'react-native-screens'
 import PinchZoomComponent from 'components/PostsList/PinchZoom'
 import PostsListContextComponent from 'components/PostsList/Context'
 import UIContextComponent from 'components/UI/Context'
+import * as eva from '@eva-design/eva'
+import { ApplicationProvider } from '@ui-kitten/components'
+import mapping from './mapping.json'
 
 enableScreens()
 
@@ -57,15 +59,15 @@ const Routes = ({ authenticated }) => {
   return (
     <NavigationContainer theme={theme}>
       {!authenticated ?
-        <PaperProvider theme={themes[0].theme}>
+        <ApplicationProvider {...eva} customMapping={mapping} theme={eva.light}>
           <AuthNavigator />
-        </PaperProvider>
+        </ApplicationProvider>
       : null}
 
       {authenticated ?
-        <PaperProvider theme={theme}>
+        <ApplicationProvider {...eva} customMapping={mapping} theme={eva.light}>
           <AppNavigator themes={themes} />
-        </PaperProvider>
+        </ApplicationProvider>
       : null}
     </NavigationContainer>
   )

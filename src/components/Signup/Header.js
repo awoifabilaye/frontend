@@ -5,9 +5,9 @@ import {
   View,
 } from 'react-native'
 import LogoIcon from 'assets/svg/header/Logo'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -22,7 +22,7 @@ const Header = ({
       <View style={styling.header}>
         <LogoIcon
           height="28"
-          fill={theme.colors.primaryIcon}
+          fill={'#333333'}
         />
       </View>
 
@@ -55,4 +55,4 @@ Header.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Header))
+export default withTranslation()(withStyles(Header))

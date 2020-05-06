@@ -6,9 +6,9 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Text, Paragraph } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -38,7 +38,7 @@ const Disclaimer = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
     paddingVertical: 8,
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -60,4 +60,4 @@ Disclaimer.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Disclaimer))
+export default withTranslation()(withStyles(Disclaimer))

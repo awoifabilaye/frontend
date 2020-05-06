@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native'
-import { Subheading } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -26,7 +26,7 @@ const Bookmark = ({
   return (
     <TouchableOpacity style={styling.root} onPress={navigationActions.navigateSearch(navigation)}>
       <View style={styling.text}>
-        <Subheading>{t('You\'re All Caught Up')}</Subheading>
+        <Text>{t('You\'re All Caught Up')}</Text>
       </View>
 
       <ScrollView style={styling.posts} horizontal>
@@ -40,7 +40,7 @@ const Bookmark = ({
       </ScrollView>
 
       <View style={styling.text}>
-        <Subheading>{t('Tap to discover')}</Subheading>
+        <Text>{t('Tap to discover')}</Text>
       </View>
     </TouchableOpacity>
   )
@@ -48,13 +48,13 @@ const Bookmark = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    paddingHorizontal: theme.spacing.base,
-    backgroundColor: theme.colors.backgroundSecondary,
+    paddingHorizontal: 12,
+    backgroundColor: '#bdc3c7',
     alignItems: 'center',
     height: 140,
   },
   text: {
-    marginVertical: theme.spacing.base,
+    marginVertical: 12,
   },
   posts: {
     flexDirection: 'row',
@@ -67,4 +67,4 @@ Bookmark.propTypes = {
   postsGetTrendingPosts: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Bookmark))
+export default withTranslation()(withStyles(Bookmark))

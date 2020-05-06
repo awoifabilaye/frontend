@@ -7,11 +7,11 @@ import {
 import ForgotForm from 'components/Forgot/Form'
 import Subtitle from 'templates/Subtitle'
 import NativeError from 'templates/NativeError'
-import { Subheading } from 'react-native-paper'
 import path from 'ramda/src/path'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -38,7 +38,7 @@ const Forgot = ({
 
       <View style={styling.root}>
         <View style={styling.title}>
-          <Subheading>{t('Forgot password ?')}</Subheading>
+          <Text>{t('Forgot password ?')}</Text>
         </View>
         <View style={styling.form}>
           <ForgotForm
@@ -87,4 +87,4 @@ Forgot.propTypes = {
   authForgotIdle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Forgot))
+export default withTranslation()(withStyles(Forgot))

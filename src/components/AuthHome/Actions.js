@@ -7,7 +7,7 @@ import {
 import DefaultButton from 'components/Formik/Button/DefaultButton'
 import * as navigationActions from 'navigation/actions'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -49,4 +49,4 @@ const styles = theme => StyleSheet.create({
   },
 })
 
-export default withTranslation()(withTheme(Actions))
+export default withTranslation()(withStyles(Actions))

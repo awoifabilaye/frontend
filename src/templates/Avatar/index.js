@@ -7,7 +7,7 @@ import {
 import Svg, { G, Path } from 'react-native-svg'
 import CacheComponent from 'components/Cache'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 
 const Icon = () => (
   <Svg height={9} width={9} viewBox="0 0 12 12">
@@ -104,13 +104,13 @@ const styles = theme => StyleSheet.create({
   },
   photoActive: {
     borderWidth: 2,
-    borderColor: theme.colors.navigation,
+    borderColor: '#95a5a6',
     borderRadius: 4,
     padding: 2,
   },
   photoInactive: {
     borderWidth: 2,
-    borderColor: theme.colors.disabled,
+    borderColor: '#95a5a6',
     borderRadius: 4,
     padding: 2,
   },
@@ -135,7 +135,7 @@ const styles = theme => StyleSheet.create({
     zIndex: 1,
   },
   icon: {
-    backgroundColor: theme.colors.button,
+    backgroundColor: '#3498db',
     width: 18,
     height: 18,
     borderRadius: 9,
@@ -157,4 +157,4 @@ AvatarTemplate.propTypes = {
   themeCode: PropTypes.any,
 }
 
-export default withTheme(AvatarTemplate)
+export default withStyles(AvatarTemplate)

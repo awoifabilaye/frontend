@@ -5,13 +5,12 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Title } from 'react-native-paper'
 import useToggle from 'react-use/lib/useToggle'
 import UpIcon from 'assets/svg/collapsable/Up'
 import DownIcon from 'assets/svg/collapsable/Down'
-import { Caption } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -30,19 +29,19 @@ const Collapsable = ({
     <View style={[styling.root, style]}>
       <TouchableOpacity onPress={setVisible} style={styling.spacing}>
         <View style={styling.header}>
-          <Title style={styling.title}>{title}</Title>
+          <Text style={styling.title}>{title}</Text>
 
           <View style={styling.icon}>
             {!visible ?
-              <DownIcon fill={theme.colors.text} />
+              <DownIcon fill={'#333333'} />
             : 
-              <UpIcon fill={theme.colors.text} />
+              <UpIcon fill={'#333333'} />
             }
           </View>
         </View>
 
         {!visible ?
-          <Caption>{helper}</Caption>
+          <Text>{helper}</Text>
         : null}
       </TouchableOpacity>
 
@@ -60,7 +59,7 @@ const styles = theme => StyleSheet.create({
     justifyContent: 'space-between',
   },
   spacing: {
-    paddingBottom: theme.spacing.base,
+    paddingBottom: 12,
   },
   icon: {
   },
@@ -78,4 +77,4 @@ Collapsable.propTypes = {
   helper: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Collapsable))
+export default withTranslation()(withStyles(Collapsable))

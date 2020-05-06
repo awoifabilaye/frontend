@@ -15,11 +15,11 @@ import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
 import CollapsableComponent from 'templates/Collapsable'
-import { Text, Caption, Switch } from 'react-native-paper'
 import dayjs from 'dayjs'
 import HeaderRight from 'navigation/HeaderRight'
+import { Text, Switch } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -142,7 +142,7 @@ const PostEditForm = ({
                 content={
                   <View style={styling.user}>
                     <Text style={styling.username}>{path(['label'])(settings)}</Text>
-                    <Caption>{path(['caption'])(settings)}</Caption>
+                    <Text>{path(['caption'])(settings)}</Text>
                   </View>
                 }
                 action={
@@ -174,10 +174,10 @@ const styles = theme => StyleSheet.create({
     flex: 1,
   },
   input: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
   title: {
-    marginBottom: theme.spacing.base,
+    marginBottom: 12,
   },
 })
 
@@ -195,7 +195,7 @@ PostEditForm.propTypes = {
   albumsGet: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(({
+export default withTranslation()(withStyles(({
   postsEdit,
   postsEditRequest,
   postsSingleGet,

@@ -4,10 +4,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native'
-import { Text, Caption } from 'react-native-paper'
 import Avatar from 'templates/Avatar'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -30,7 +30,7 @@ const Profile = ({
 
       <View style={styling.profileText}>
         <Text>{title}</Text>
-        <Caption>{subtitle}</Caption>
+        <Text>{subtitle}</Text>
       </View>
     </View>
   )
@@ -42,7 +42,7 @@ const styles = theme => StyleSheet.create({
     alignItems: 'center',
   },
   profileText: {
-    paddingHorizontal: theme.spacing.base,
+    paddingHorizontal: 12,
   },
 })
 
@@ -54,4 +54,4 @@ Profile.propTypes = {
   subtitle: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Profile))
+export default withTranslation()(withStyles(Profile))

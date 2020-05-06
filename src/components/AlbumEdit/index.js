@@ -8,7 +8,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import AlbumEditForm from 'components/AlbumEdit/Form'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation, useRoute } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -52,11 +52,11 @@ AlbumEditComponent.propTypes = {
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
+    backgroundColor: '#ffffff',
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
-export default withTranslation()(withTheme(AlbumEditComponent))
+export default withTranslation()(withStyles(AlbumEditComponent))

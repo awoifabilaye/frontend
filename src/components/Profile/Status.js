@@ -5,10 +5,10 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native'
-import { Caption, Text } from 'react-native-paper'
 import * as navigationActions from 'navigation/actions'
+import { Text } from '@ui-kitten/components'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -23,8 +23,8 @@ const ProfileStatus = ({
     <View style={styling.root}>
       <TouchableOpacity onPress={navigationActions.navigatePayout(navigation)}>
         <Text>
-          <Caption>{t('You will be paid {{amount}} dollars per view from other diamond members', { amount: '$0.11' })} </Caption>
-          <Caption style={styling.link}>{t('learn more')}</Caption>
+          <Text>{t('You will be paid {{amount}} dollars per view from other diamond members', { amount: '$0.11' })} </Text>
+          <Text style={styling.link}>{t('learn more')}</Text>
         </Text>
       </TouchableOpacity>
     </View>
@@ -33,11 +33,11 @@ const ProfileStatus = ({
 
 const styles = theme => StyleSheet.create({
   root: {
-    paddingHorizontal: theme.spacing.base,
-    paddingTop: theme.spacing.base,
+    paddingHorizontal: 12,
+    paddingTop: 12,
   },
   link: {
-    color: theme.colors.primary,
+    color: '#2ecc71',
     fontWeight: '500',
   },
 })
@@ -47,4 +47,4 @@ ProfileStatus.propTypes = {
   t: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(ProfileStatus))
+export default withTranslation()(withStyles(ProfileStatus))

@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import Layout from 'constants/Layout'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -82,4 +82,4 @@ GridItemTemplate.propTypes = {
   inactiveIcon: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(GridItemTemplate))
+export default withTranslation()(withStyles(GridItemTemplate))

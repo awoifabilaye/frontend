@@ -5,14 +5,14 @@ import {
   View,
   ScrollView,
 } from 'react-native'
-import { Text } from 'react-native-paper'
+import { Text } from '@ui-kitten/components'
 import RowsComponent from 'templates/Rows'
 import RowsItemComponent from 'templates/RowsItem'
 import UserRowComponent from 'templates/UserRow'
 import ThemeRowActionComponent from 'templates/ThemeRowAction'
 import path from 'ramda/src/path'
 
-import { withTheme } from 'react-native-paper'
+import { withStyles } from '@ui-kitten/components'
 import { useNavigation } from '@react-navigation/native'
 import { withTranslation } from 'react-i18next'
 
@@ -57,11 +57,11 @@ const Translation = ({
 const styles = theme => StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: theme.colors.backgroundPrimary,
-    padding: theme.spacing.base,
+    backgroundColor: '#ffffff',
+    padding: 12,
   },
   form: {
-    padding: theme.spacing.base,
+    padding: 12,
   },
 })
 
@@ -76,4 +76,4 @@ Translation.propTypes = {
   usersEditProfileRequest: PropTypes.any,
 }
 
-export default withTranslation()(withTheme(Translation))
+export default withTranslation()(withStyles(Translation))
